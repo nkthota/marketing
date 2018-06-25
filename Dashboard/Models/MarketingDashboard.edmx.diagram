@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bd70b2266ce240bb9a6c746bb24d5cb9" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="MarketingModel.CampaignLead" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketingModel.CampaignMonth" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketingModel.CampaignOwner" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketingModel.CampaignTrade" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketingModel.CampaignType" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketingModel.Country" Width="1.5" PointX="7.125" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketingModel.EmailSystem" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketingModel.Status" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketingModel.Trade" Width="1.5" PointX="12.125" PointY="10.875" IsExpanded="true" />
+        <AssociationConnector Association="MarketingModel.FK__CampaignO__Trade__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="MarketingModel.FK__CampaignT__Trade__4E88ABD4" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MarketingModel.CampaignPlan" Width="1.5" PointX="7.375" PointY="4.875" />
+        <AssociationConnector Association="MarketingModel.FK__CampaignI__Accou__25518C17" />
+        <AssociationConnector Association="MarketingModel.FK__CampaignI__Campa__114A936A" />
+        <AssociationConnector Association="MarketingModel.FK__CampaignI__Campa__123EB7A3" />
+        <AssociationConnector Association="MarketingModel.FK__CampaignI__Campa__1332DBDC" />
+        <AssociationConnector Association="MarketingModel.FK__CampaignI__Campa__1EA48E88" />
+        <AssociationConnector Association="MarketingModel.FK__CampaignI__Campa__236943A5" />
+        <AssociationConnector Association="MarketingModel.FK__CampaignI__Conta__2180FB33" />
+        <AssociationConnector Association="MarketingModel.FK__CampaignI__Conta__2645B050" />
+        <AssociationConnector Association="MarketingModel.FK__CampaignI__Succe__1F98B2C1" />
+        <AssociationConnector Association="MarketingModel.FK__CampaignI__Succe__245D67DE" />
+        <EntityTypeShape EntityType="MarketingModel.CampaignMarket" Width="1.5" PointX="8.375" PointY="12.125" />
+        <EntityTypeShape EntityType="MarketingModel.AccountSize" Width="1.5" PointX="3.375" PointY="10.875" />
+        <EntityTypeShape EntityType="MarketingModel.Campaign" Width="1.5" PointX="10.625" PointY="2.625" />
+        <AssociationConnector Association="MarketingModel.FK__Campaign__Campai__412EB0B6" />
+        <AssociationConnector Association="MarketingModel.FK__Campaign__Campai__4222D4EF" />
+        <AssociationConnector Association="MarketingModel.FK__Campaign__Campai__73BA3083" />
+        <AssociationConnector Association="MarketingModel.FK__Campaign__EmailS__4316F928" />
+        <AssociationConnector Association="MarketingModel.FK__Campaign__Status__440B1D61" />
+        <AssociationConnector Association="MarketingModel.FK__CampaignM__Campa__5FB337D6" />
+        <AssociationConnector Association="MarketingModel.FK__CampaignT__Campa__4D94879B" />
+        <EntityTypeShape EntityType="MarketingModel.vCampaignTypeMonth" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MarketingModel.vCampaignTradeMonth" Width="1.5" PointX="7.375" PointY="7.75" />
+        <EntityTypeShape EntityType="MarketingModel.EmailStatu" Width="1.5" PointX="5.375" PointY="10.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

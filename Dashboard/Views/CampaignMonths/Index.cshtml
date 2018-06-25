@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Dashboard.Models.CampaignMonth>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<div class="normalheader ">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right m-t-lg">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><a href="/Roadmap">Roadmap</a></li>
+                    <li><a href="/Campaigns">Campaigns</a></li>
+                    <li class="active">
+                        <span>Campaign Months</span>
+                    </li>
+                </ol>
+            </div>
+            <h2 class="hmodal-danger modal-title" style="color: #c0392b;">
+                Campaign Months
+            </h2>
+            <h5 style="font-weight: 100;">List of all campaigns months</h5>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="content animate-panel">
+        <div class="row">
+            <div class="col-lg-3">
+                <button type="button" class="btn btn-outline btn-danger2" onclick=" window.open('/CampaignMonths/Create', '_blank')">Create</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="hpanel">
+                    <div class="panel-heading">
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table id="example1" class="display table table-bordered" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Campaign Name</th>
+                                        <th>Month</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var camp in Model.ToList())
+                                    {
+                                    <tr>
+                                        <td>@camp.Campaign.Name</td>
+                                        <td>@camp.Month</td>
+                                        <td>
+                                            <button style="color: #90A4AE;" class="btn btn-outline " type="button" onclick=" window.open('/CampaignMonths/Edit/@camp.ID', '_self')"><i class="fa fa-paste"></i> Edit</button>
+                                            <button style="color: #cd5c5c;" class="btn btn-outline " type="button" onclick=" window.open('/CampaignMonths/Delete/@camp.ID', '_self')"><i class="fa fa-trash-o"></i> Delete</button>
+                                        </td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/bundles/datatables/css")
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/datatables/js")
+    @Scripts.Render("~/bundles/datatablesBootstrap/js")
+    @Scripts.Render("~/bundles/datatablesPlugins/js")
+
+    <script type="text/javascript">
+
+        $(function () {
+
+            // Initialize Example 1
+            $('#example1').dataTable({
+                dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>tp",
+                "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                "pageLength": 100,
+                "order": [[1, "asc"]],
+                buttons: [
+                    { extend: 'copy', className: 'btn-sm' },
+                    { extend: 'csv', title: 'ExampleFile', className: 'btn-sm' },
+                    { extend: 'pdf', title: 'ExampleFile', className: 'btn-sm' },
+                    { extend: 'print', className: 'btn-sm' }
+                ]
+            });
+
+        });
+
+    </script>
+}

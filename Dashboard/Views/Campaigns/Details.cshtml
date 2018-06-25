@@ -1,0 +1,721 @@
+﻿@model Dashboard.Models.Campaign
+
+@{
+    ViewBag.Title = "Details";
+    var currentRowData = "";
+    List<CalenderYear> displayCalender = ViewBag.CalenderYear;
+    List<Dashboard.Models.Trade> currentTrades = ViewBag.Trades;
+    List<TradeDetails> ownerDetails = ViewBag.Owners;
+    List<Dashboard.Models.CampaignType> campaignTypes = ViewBag.CampaignTypes;
+    ScheduleFilter filters = ViewBag.ScheduleFilters;
+    var Products = ViewBag.Products;
+    var Accounts = ViewBag.Accounts;
+    var Markets = ViewBag.Markets;
+    var startDate = string.IsNullOrEmpty(Model.StartDate.ToString()) ? "" : DateTime.Parse(Model.StartDate.ToString()).ToShortDateString();
+    var endDate = string.IsNullOrEmpty(Model.EndDate.ToString()) ? "" : DateTime.Parse(Model.EndDate.ToString()).ToShortDateString();
+    var isCanadaNeeded = ViewBag.IsCanada;
+}
+
+<div class="normalheader ">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right m-t-lg">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><a href="/Roadmap">Roadmap</a></li>
+                    <li><a href="/Campaigns">Campaigns</a></li>
+                    <li class="active">
+                        <span>@Model.Name</span>
+                    </li>
+                </ol>
+            </div>
+            <h2 class="hmodal-danger modal-title" style="color: #c0392b;">
+                @Model.Name
+            </h2>
+            <h5 style="font-weight: 100;">Objective: @Model.Objective</h5>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="content animate-panel">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="hpanel">
+                    <div class="panel-body" style="display: block;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <dl class="dl-horizontal">
+                                    <dt style="padding: 5px;">Campaign Plan</dt>
+                                    <dd style="padding: 5px;">@Model.CampaignPlan.PlanName</dd>
+                                    <dt style="padding: 5px;">Campaign Type</dt>
+                                    <dd style="padding: 5px;">@Model.CampaignType.Type</dd>
+                                    <dt style="padding: 5px;">Status</dt>
+                                    <dd style="padding: 5px;">@Model.Status.Name</dd>
+                                    <dt style="padding: 5px;">Start Date</dt>
+                                    <dd style="padding: 5px;">@startDate</dd>
+                                    <dt style="padding: 5px;">Trades Included</dt>
+                                    <dd style="padding: 5px;">
+                                        @{
+                                        foreach (var recordDetailse in ownerDetails.Where(p => p.CampaignId == @Model.ID))
+                                        {
+                                            <span class="badge" style="background-color: @recordDetailse.Color;">@recordDetailse.TradeName</span>
+                                    }
+                                        }
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="col-md-6">
+                                <dl class="dl-horizontal">
+                                    <dt style="padding: 5px;">Email System</dt>
+                                    <dd style="padding: 5px;">@Model.EmailSystem.Name</dd>
+                                    <dt style="padding: 5px;">Campaign Lead</dt>
+                                    <dd style="padding: 5px;">@Model.CampaignLead.FirstName @Model.CampaignLead.LastName</dd>
+                                    <dt style="padding: 5px;">Account Size</dt>
+                                    <dd style="padding: 5px;">@Accounts</dd>
+                                    <dt style="padding: 5px;">End Date</dt>
+                                    <dd style="padding: 5px;">@endDate</dd>
+                                    <dt style="padding: 5px;">Market(s)</dt>
+                                    <dd style="padding: 5px;">@Markets</dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="table-responsive">
+                                    <table cellpadding="1" cellspacing="1" class="table table-condensed table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Trade</th>
+                                                <th>Campaign Owner</th>
+                                                <th>Role</th>
+                                                <th>Email</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{
+                                            foreach (var data in ownerDetails.Where(p => p.CampaignId == @Model.ID))
+                                            {
+                                                <tr>
+                                                    <td>@data.TradeName</td>
+                                                    <td>@data.Name</td>
+                                                    <td>@data.Role</td>
+                                                    <td>@data.Email</td>
+                                                </tr>
+                                        }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3 text-center">
+                                <div class="stats-title pull-left">
+                                    <h3 class="font-extra-bold no-margins text-success">Revenue (US)</h3>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="row" style="margin-top:30px;">
+                                    <h1 class="m-lg" id="us_camp_total">$</h1>
+                                </div>
+                                <div class="m-t-xs">
+                                    <div class="row" style="margin-top:10px;">
+                                        <div class="col-xs-4" style="">
+                                        </div>
+                                        <div class="col-xs-4" style="">
+                                            <small class="stat-label font-extra-bold">Portfolio Sales (L2)</small>
+                                            <h4 id="us_camp_portfolio">$</h4>
+                                        </div>
+                                        <div class="col-xs-4" style="">
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top:10px;">
+                                        <div class="col-xs-4" style="">
+                                        </div>
+                                        <div class="col-xs-4" style="">
+                                            <small class="stat-label font-extra-bold">Units Sold</small>
+                                            <h4 id="us_camp_counts"></h4>
+                                        </div>
+                                        <div class="col-xs-4" style="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div id="uscontainer" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="ca_graph">
+            <div class="col-lg-12">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3 text-center">
+                                <div class="stats-title pull-left">
+                                    <h3 class="font-extra-bold no-margins text-success">Revenue (CA)</h3>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="row" style="margin-top:30px;">
+                                    <h1 class="m-lg" id="ca_camp_total">$</h1>
+                                </div>
+                                <div class="m-t-xs">
+                                    <div class="row" style="margin-top:10px;">
+                                        <div class="col-xs-4" style="">
+                                        </div>
+                                        <div class="col-xs-4" style="">
+                                            <small class="stat-label font-extra-bold">Portfolio Sales (L2)</small>
+                                            <h4 id="ca_camp_portfolio">$</h4>
+                                        </div>
+                                        <div class="col-xs-4" style="">
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top:10px;">
+                                        <div class="col-xs-4" style="">
+                                        </div>
+                                        <div class="col-xs-4" style="">
+                                            <small class="stat-label font-extra-bold">Units Sold</small>
+                                            <h4 id="ca_camp_counts"></h4>
+                                        </div>
+                                        <div class="col-xs-4" style="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div id="cacontainer" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="hpanel">
+                    <div class="panel-body text-center h-200">
+                        <i class="pe-7s-mail fa-3x"></i>
+
+                        <h1 class="m-xs">@string.Format("{0:n0}", @Model.Email_Deliveries)</h1>
+
+                        <h3 class="font-extra-bold no-margins text-success">
+                            Emails Deliveries
+                        </h3>
+                        <small>Total emails delivered</small>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="hpanel">
+                    <div class="panel-body text-center h-200">
+                        <i class="pe-7s-display1 fa-3x"></i>
+
+                        <h1 class="m-xs">@string.Format("{0:n0}", @Model.Website_Sessions)</h1>
+
+                        <h3 class="font-extra-bold no-margins text-success">
+                            Website Sessions
+                        </h3>
+                        <small>Total sessions on HOL</small>
+                    </div>
+
+                </div>
+            </div>
+            @*<div class="col-lg-3">
+                <div class="hpanel">
+                    <div class="panel-body text-center h-200">
+                        <i class="pe-7s-credit fa-3x"></i>
+
+                        <h1 class="m-xs">@string.Format("{0:n0}", @Model.Transactions)</h1>
+
+                        <h3 class="font-extra-bold no-margins text-success">
+                            Transactions
+                        </h3>
+                        <small>Total purchases on HOL</small>
+                    </div>
+
+                </div>
+            </div>*@
+            <div class="col-lg-4">
+                <div class="hpanel">
+                    <div class="panel-body text-center h-200">
+                        <i class="pe-7s-add-user fa-3x"></i>
+
+                        <h1 class="m-xs">@string.Format("{0:n0}", @Model.Email_Recipients)</h1>
+
+                        <h3 class="font-extra-bold no-margins text-success">
+                            Email Recipients
+                        </h3>
+                        <small>Total email recipients</small>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="panel panel-filled">
+                            <div class="panel-body">
+                                <h2 class="m-b-none" style="margin-top:-2px;">
+                                    @Model.Open_Rate%<span class="slight"><i class="pull-right pe-7s-mail-open-file fa-1x"></i></span>
+                                </h2>
+                                <h3 class="font-extra-bold no-margins text-success" style="font-weight:300;">Open Rate</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="panel panel-filled">
+                            <div class="panel-body">
+                                <h2 class="m-b-none" style="margin-top:-2px;">
+                                    @Model.Click_Rate%<span class="slight"><i class="pull-right pe-7s-check fa-1x"></i></span>
+                                </h2>
+                                <h3 class="font-extra-bold no-margins text-success" style="font-weight:300;">Click Rate</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="panel panel-filled">
+                            <div class="panel-body">
+                                <h2 class="m-b-none" style="margin-top:-2px;">
+                                    @Model.Bounce_Rate%<span class="slight"><i class="pull-right pe-7s-attention fa-1x"></i></span>
+                                </h2>
+                                <h3 class="font-extra-bold no-margins text-success" style="font-weight:300;">Bounce Rate</h3>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="col-xs-3">
+                        <div class="panel panel-filled">
+                            <div class="panel-body">
+                                <h2 class="m-b-none" style="margin-top:-2px;">
+                                    @Model.Conversion_Rate%<span class="slight"><i class="pull-right pe-7s-switch fa-1x"></i></span>
+                                </h2>
+                                <h3 class="font-extra-bold no-margins text-success" style="font-weight:300;">Ecom. Conversion Rate</h3>
+                            </div>
+                        </div>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="hpanel hred">
+                    <div class="panel-heading">
+                        <h3 class="font-extra-bold no-margins text-success">Email Message</h3>
+                    </div>
+                    <div class="panel-body">
+                        <input id="emailContent" hidden="true" value="@Model.Email" />
+                        <div id="summernote"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row hidden">
+            <div class="col-lg-12">
+                <div class="hpanel hred">
+                    <div class="panel-heading">
+                        <h3 class="font-extra-bold no-margins text-success">Notes</h3>
+                    </div>
+                    <div class="panel-body">
+                        <input id="notesContent" hidden="true" value="@Model.Notes" />
+                        <div id="summernotes"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+@section Styles {
+    @Styles.Render("~/bundles/xeditable/css")
+    @Styles.Render("~/bundles/select2/css")
+    @Styles.Render("~/bundles/touchspin/css")
+    @Styles.Render("~/bundles/datepicker/css")
+    @Styles.Render("~/bundles/bootstrapCheckbox/css")
+    @Styles.Render("~/bundles/datetimepicker/css")
+    @Styles.Render("~/bundles/clockpicker/css")
+    @Styles.Render("~/bundles/datatables/css")
+    @Styles.Render("~/bundles/ladda/css")
+    @Styles.Render("~/bundles/toastr/css")
+    @Styles.Render("~/bundles/morris/css")
+    @Styles.Render("~/bundles/chartist/css")
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/moment/js")
+    @Scripts.Render("~/bundles/xeditable/js")
+    @Scripts.Render("~/bundles/select2/js")
+    @Scripts.Render("~/bundles/touchspin/js")
+    @Scripts.Render("~/bundles/datepicker/js")
+    @Scripts.Render("~/bundles/datetimepicker/js")
+    @Scripts.Render("~/bundles/clockpicker/js")
+    @Scripts.Render("~/bundles/datatables/js")
+    @Scripts.Render("~/bundles/datatablesBootstrap/js")
+    @Scripts.Render("~/bundles/datatablesPlugins/js")
+    @Scripts.Render("~/bundles/ladda/js")
+    @Scripts.Render("~/bundles/toastr/js")
+    @Scripts.Render("~/bundles/flot/js")
+    @Scripts.Render("~/bundles/chartjs/js")
+    @Scripts.Render("~/bundles/morris/js")
+    @Scripts.Render("~/bundles/chartist/js")
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+    <script src="~/Scripts/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+
+    <script type="text/javascript">
+
+        // display graph for us - still to handle canada
+
+        $.getJSON('/Campaigns/GetUsGraph/@Html.Raw(Model.ID)', function (data) {
+
+            console.log(data);
+
+            Highcharts.setOptions({
+                lang: {
+                    thousandsSep: ','
+                }
+            });
+
+            var obj = JSON.parse(data);
+
+            $('#us_camp_total').text('$' + obj[1].data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+            $('#us_camp_portfolio').text('$' + obj[2].data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+            $('#us_camp_counts').text(obj[7].data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+
+            new Highcharts.chart('uscontainer', {
+                chart: {
+                    zoomType: 'xy'
+                },
+                credits: {
+                    enabled: false
+                },
+                lang: {
+                    thousandsSep: ','
+                },
+                title: {
+                    text: ''
+                },
+                subtitle: {
+                    text: ''
+                },
+                xAxis: [{
+                    categories: obj[0].data,
+                    crosshair: true,
+                    plotBands: [{ // visualize the weekend
+                        from: parseInt(obj[8].data) + 0.5,
+                        to: parseInt(obj[8].data) + 1.5,
+                        color: 'rgba(68, 170, 213, .2)'
+                    },
+                    { // visualize the weekend
+                        from: parseInt(obj[9].data) + 0.5,
+                        to: parseInt(obj[9].data) + 1.5,
+                        //from: 7.5,
+                        //to: 8.5,
+                        //from: 5.5,
+                        //to: 6.5,
+                        color: 'rgba(68, 170, 213, .2)'
+                    }]
+                }],
+                plotOptions: {
+                    column: {
+                        stacking: 'normal'
+                    }
+                },
+                yAxis: [{ // Primary yAxis
+                    labels: {
+                        format: '${value:,.0f}',
+                        style: {
+                            color: Highcharts.getOptions().colors[1]
+                        }
+                    },
+                    title: {
+                        text: 'Revenue',
+                        style: {
+                            color: Highcharts.getOptions().colors[1]
+                        }
+                    }
+                }, { // Secondary yAxis
+                    title: {
+                        text: 'Units Sold',
+                        style: {
+                            color: Highcharts.getOptions().colors[0]
+                        }
+                    },
+                    labels: {
+                        format: '{value:,.0f}',
+                        style: {
+                            color: Highcharts.getOptions().colors[0]
+                        }
+                    },
+                    opposite: true
+                }],
+                tooltip: {
+                    shared: true
+                },
+                legend: {
+                    align: 'center',
+                    x: -50,
+                    verticalAlign: 'top',
+                    y: -12,
+                    floating: true,
+                    backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+                    borderColor: '#CCC',
+                    borderWidth: 1,
+                    shadow: false
+                },
+                series: [
+                    {
+                        name: 'OnlineSales',
+                        type: 'column',
+                        data: obj[3].data,
+                        color: '#D2051E',
+                        tooltip: {
+                            valuePrefix: '$'
+                        }
+                    },
+                    {
+                        name: 'AccountManagerSales',
+                        type: 'column',
+                        data: obj[4].data,
+                        color: '#524F53',
+                        tooltip: {
+                            valuePrefix: '$'
+                        }
+                    },
+                    {
+                        name: 'HiltiStoreSales',
+                        type: 'column',
+                        data: obj[5].data,
+                        color: '#887F6E',
+                        tooltip: {
+                            valuePrefix: '$'
+                        }
+                    },
+                    {
+                        name: 'CustomerServiceSales',
+                        type: 'column',
+                        data: obj[6].data,
+                        color: '#D7CEBD',
+                        tooltip: {
+                            valuePrefix: '$'
+                        }
+                    },
+                    {
+                        name: 'Units Sold',
+                        type: 'spline',
+                        yAxis: 1,
+                        data: obj[10].data,
+                        color: '#000000',
+                        tooltip: {
+                            valueSuffix: 'Units'
+                        }
+
+                    }
+                ]
+            });
+
+        });
+
+        $.getJSON('/Campaigns/GetCaGraph/@Html.Raw(Model.ID)', function (data) {
+
+            console.log(data);
+
+            var obj = JSON.parse(data);
+
+            $('#ca_camp_total').text('$' + obj[1].data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+            $('#ca_camp_portfolio').text('$' + obj[2].data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+            $('#ca_camp_counts').text(obj[7].data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+
+            new Highcharts.chart('cacontainer', {
+                chart: {
+                    zoomType: 'xy'
+                },
+                credits: {
+                    enabled: false
+                },
+                lang: {
+                    thousandsSep: ','
+                },
+                title: {
+                    text: ''
+                },
+                subtitle: {
+                    text: ''
+                },
+                xAxis: [{
+                    categories: obj[0].data,
+                    crosshair: true,
+                    plotBands: [{ // visualize the weekend
+                        from: parseInt(obj[8].data) + 0.5,
+                        to: parseInt(obj[8].data) + 1.5,
+                        color: 'rgba(68, 170, 213, .2)'
+                    },
+                    { // visualize the weekend
+                        from: parseInt(obj[9].data) + 0.5,
+                        to: parseInt(obj[9].data) + 1.5,
+                        //from: 5.5,
+                        //to: 6.5,
+                        color: 'rgba(68, 170, 213, .2)'
+                    }]
+                }],
+                plotOptions: {
+                    column: {
+                        stacking: 'normal'
+                    }
+                },
+                yAxis: [{ // Primary yAxis
+                    labels: {
+                        format: '${value:,.0f}',
+                        style: {
+                            color: Highcharts.getOptions().colors[1]
+                        }
+                    },
+                    title: {
+                        text: 'Revenue',
+                        style: {
+                            color: Highcharts.getOptions().colors[1]
+                        }
+                    }
+                }, { // Secondary yAxis
+                    title: {
+                        text: 'Units Sold',
+                        style: {
+                            color: Highcharts.getOptions().colors[0]
+                        }
+                    },
+                    labels: {
+                        format: '{value:,.0f}',
+                        style: {
+                            color: Highcharts.getOptions().colors[0]
+                        }
+                    },
+                    opposite: true
+                }],
+                tooltip: {
+                    shared: true
+                },
+                legend: {
+                    align: 'center',
+                    x: -50,
+                    verticalAlign: 'top',
+                    y: -12,
+                    floating: true,
+                    backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+                    borderColor: '#CCC',
+                    borderWidth: 1,
+                    shadow: false
+                },
+                series: [
+                    {
+                        name: 'OnlineSales',
+                        type: 'column',
+                        data: obj[3].data,
+                        color: '#D2051E',
+                        tooltip: {
+                            valuePrefix: '$'
+                        }
+                    },
+                    {
+                        name: 'AccountManagerSales',
+                        type: 'column',
+                        data: obj[4].data,
+                        color: '#524F53',
+                        tooltip: {
+                            valuePrefix: '$'
+                        }
+                    },
+                    {
+                        name: 'HiltiStoreSales',
+                        type: 'column',
+                        data: obj[5].data,
+                        color: '#887F6E',
+                        tooltip: {
+                            valuePrefix: '$'
+                        }
+                    },
+                    {
+                        name: 'CustomerServiceSales',
+                        type: 'column',
+                        data: obj[6].data,
+                        color: '#D7CEBD',
+                        tooltip: {
+                            valuePrefix: '$'
+                        }
+                    },
+                    {
+                        name: 'Units Sold',
+                        type: 'spline',
+                        yAxis: 1,
+                        data: obj[10].data,
+                        color: '#000000',
+                        tooltip: {
+                            valueSuffix: 'Units'
+                        }
+
+                    }
+                ]
+            });
+
+        });
+
+        if (parseInt(@ViewBag.IsCanada) === 1) {
+            $('#ca_graph').hide();
+        }
+
+        // default values after page load
+        $("#reportTrade").val("All");
+
+        // Initialize Example 1
+        $('#example2').dataTable({
+            dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>tp",
+            "pageLength": 25,
+            "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+            buttons: [
+                { extend: 'copy', className: 'btn-sm' },
+                { extend: 'csv', title: 'ExampleFile', className: 'btn-sm' },
+                { extend: 'pdf', title: 'ExampleFile', className: 'btn-sm' },
+                { extend: 'print', className: 'btn-sm' }
+            ]
+        });
+
+        // Initialize Example 2
+        $('#example2').dataTable();
+
+        // default loading of dashboard data
+
+        $('#refreshdata').click(function () {
+            toastr.info('Info - Data refreshed based on selection!');
+        });
+
+        $('#summernote').summernote('code', $('#emailContent').val());
+
+        $('#summernote').summernote('disable');
+
+        $('#summernotes').summernote('code', $('#notesContent').val());
+
+        $('#summernotes').summernote('disable');
+
+
+    </script>
+}

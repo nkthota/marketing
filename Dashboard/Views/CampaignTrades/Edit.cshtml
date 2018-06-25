@@ -1,0 +1,50 @@
+﻿@model Dashboard.Models.CampaignTrade
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="hpanel horange">
+                    <div class="panel-heading">
+                    </div>
+                    <div class="panel-body" style="margin-right: 100px; margin-left: 100px;">
+                        <h4 class="modal-title" style="font-weight: 100; color: #c0392b;">Edit Campaign Trade</h4>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.ID)
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CampaignID, "CampaignID", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("CampaignID", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.CampaignID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TradeID, "TradeID", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("TradeID", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.TradeID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input id="save" type="submit" value="Save" class="btn w-xs" style="background-color: #666666; margin-right: 20px; margin-bottom: 100px; margin-top: 20px; width: 280px; float: right; color: white;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
