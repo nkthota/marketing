@@ -20,8 +20,11 @@ namespace Dashboard.Models
         {
             this.CampaignMonths = new HashSet<CampaignMonth>();
             this.CampaignTrades = new HashSet<CampaignTrade>();
+            this.TemplateAs = new HashSet<TemplateA>();
+            this.TemplateCs = new HashSet<TemplateC>();
+            this.TemplateBs = new HashSet<TemplateB>();
         }
-    
+
         public int ID { get; set; }
         public string Name { get; set; }
         public string Objective { get; set; }
@@ -64,6 +67,7 @@ namespace Dashboard.Models
         public string CAGraphWeekRevenue { get; set; }
         public string CAGraphWeeks { get; set; }
         public string Email_Status { get; set; }
+        public string TemplateType { get; set; }
     
         public virtual CampaignType CampaignType { get; set; }
         public virtual CampaignLead CampaignLead { get; set; }
@@ -74,5 +78,11 @@ namespace Dashboard.Models
         public virtual ICollection<CampaignMonth> CampaignMonths { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CampaignTrade> CampaignTrades { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TemplateA> TemplateAs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TemplateC> TemplateCs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TemplateB> TemplateBs { get; set; }
     }
 }

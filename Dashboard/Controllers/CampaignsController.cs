@@ -178,7 +178,7 @@ namespace Dashboard.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Marketing_Admin")]
-        public ActionResult Edit([Bind(Include = "ID,Name,Objective,CampaignTypeID,CampaignLeadID,StatusID,EmailSystemID,CampaignPlanID,StartDate,EndDate,DateSubmitted,CampaignMarket,CampaignProducts,SuccessMetric,AccountSize,ContactPriority,Notes,CampaignProjectManager,Email,Email_Deliveries,Website_Sessions,Transactions,Email_Recipients,Open_Rate,Click_Rate,Bounce_Rate,Conversion_Rate,LandingPage,LandingUrl,USGraphWeeks,USGraphWeekRevenue,USGraphWeekUnits,CAGraphWeeks,CAGraphWeekRevenue,CAGraphWeekUnits,Email_Status")] Campaign campaign)
+        public ActionResult Edit([Bind(Include = "ID,Name,Objective,CampaignTypeID,CampaignLeadID,StatusID,EmailSystemID,CampaignPlanID,StartDate,EndDate,DateSubmitted,CampaignMarket,CampaignProducts,SuccessMetric,AccountSize,ContactPriority,Notes,CampaignProjectManager,Email,Email_Deliveries,Website_Sessions,Transactions,Email_Recipients,Open_Rate,Click_Rate,Bounce_Rate,Conversion_Rate,LandingPage,LandingUrl,USGraphWeeks,USGraphWeekRevenue,USGraphWeekUnits,CAGraphWeeks,CAGraphWeekRevenue,CAGraphWeekUnits,Email_Status,TemplateType")] Campaign campaign)
         {
             if (ModelState.IsValid)
             {
@@ -415,5 +415,67 @@ namespace Dashboard.Controllers
 
         }
 
+        public int GetTemplateAUrl(int? id)
+        {
+            int templateId = 0;
+            if (db.TemplateAs.Where(p => p.CampaignID == id).Count() != 0)
+            {
+                templateId = db.TemplateAs.Where(p => p.CampaignID == id).FirstOrDefault().ID;
+            }
+            return templateId;
+        }
+
+            
+        public int CreateTemplateA(int? id)
+        {
+            var record = db.TemplateAs.Add(new TemplateA
+            {
+                CampaignID = id
+            });
+            db.SaveChanges();
+            return record.ID;
+        }
+
+        public int GetTemplateBUrl(int? id)
+        {
+            int templateId = 0;
+            if (db.TemplateBs.Where(p => p.CampaignID == id).Count() != 0)
+            {
+                templateId = db.TemplateBs.Where(p => p.CampaignID == id).FirstOrDefault().ID;
+            }
+            return templateId;
+        }
+
+
+        public int CreateTemplateB(int? id)
+        {
+            var record = db.TemplateBs.Add(new TemplateB
+            {
+                CampaignID = id
+            });
+            db.SaveChanges();
+            return record.ID;
+        }
+
+        public int GetTemplateCUrl(int? id)
+        {
+            int templateId = 0;
+            if (db.TemplateCs.Where(p => p.CampaignID == id).Count() != 0)
+            {
+                templateId = db.TemplateAs.Where(p => p.CampaignID == id).FirstOrDefault().ID;
+            }
+            return templateId;
+        }
+
+
+        public int CreateTemplateC(int? id)
+        {
+            var record = db.TemplateCs.Add(new TemplateC
+            {
+                CampaignID = id
+            });
+            db.SaveChanges();
+            return record.ID;
+        }
     }
 }

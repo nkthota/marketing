@@ -1,0 +1,93 @@
+﻿.td-sapce {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+div.content {
+    background-color: #F3F0EB;
+}
+
+#menu {
+    background-color: #D7CEBA;
+}
+
+body {
+    color:black!important;
+}
+
+.text-success {
+    color: #B8B2A8!important;
+}
+
+.table-responsive {
+    font-size:14px!important;
+}
+
+.text-sea-green {
+    color: #4ECDC4;
+}
+
+html {
+    background-color: #D7CEBA!important;
+}
+
+#morris-hover-point {
+    color: #4ECDC4;
+}
+
+.month {
+    border:1px solid #eaeaea; 
+    text-align:center; 
+    background-color:#D7CEBA;
+}
+
+.calender-header {
+    text-transform:uppercase;
+    font-weight:bold;
+    text-align:center;
+}
+
+.campaign-title{
+    text-align:center;
+    text-transform:uppercase;
+    font-size:12px!important;
+}
+
+#eventview td {
+    border-bottom-style: hidden;
+    border-right-style: hidden;
+    border-top-style: hidden;
+    border-left-style: hidden;
+}
+
+#eventview th {
+    border-bottom-style: hidden;
+    border-right-style: hidden;
+    border-top-style: hidden;
+    border-left-style: hidden;
+    letter-spacing: 2px;
+    font-size: 15px;
+}
+
+.hpanel-margin {
+    margin-bottom: -25px;
+}
+
+.panel-event {
+    border-radius: 10px !important;
+    background-color: #ebedef;
+}
+
+.event-row{
+    height:120px;
+}
+
+.pad10 {
+    padding-top: 7px;
+}
+
+.padfull20 {
+    padding: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}

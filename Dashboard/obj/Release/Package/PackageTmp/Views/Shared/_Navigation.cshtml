@@ -1,0 +1,39 @@
+﻿<div id="navigation">
+    <ul class="nav metismenu" id="side-menu">
+        <li class="@Html.IsSelected(controller: "Dashboard")">
+            <a href="@Url.Action("Index", "Dashboard")"> <span class="nav-label">Dashboard</span> </a>
+        </li>
+        <li class="@Html.IsSelected(controller: "Sales")">
+            <a href="#"><span class="nav-label">Sales</span><span class="fa arrow"></span> </a>
+            <ul class="nav nav-second-level">
+                <li class="@Html.IsSelected(action: "ByTrade")"><a href="@Url.Action("ByTrade", "Sales")">By Trade</a></li>
+                <li class="@Html.IsSelected(action: "ByCountry")"><a href="@Url.Action("ByCountry", "Sales")">By Country</a></li>
+                <li class="@Html.IsSelected(action: "ByBU")"><a href="@Url.Action("ByBU", "Sales")">By Business Unit</a></li>
+            </ul>
+        </li>
+        <li class="@Html.IsSelected(controller: "Campaigns")">
+            <a href="#"><span class="nav-label">Campaigns</span><span class="fa arrow"></span> </a>
+            <ul class="nav nav-second-level">
+                <li class="@Html.IsSelected(action: "ByTrade")"><a href="@Url.Action("ByTrade", "Campaigns")">All Trades</a></li>
+                <li class="@Html.IsSelected(action: "ByTrade")"><a href="@Url.Action("ByTrade", "Campaigns")">Building Construction</a></li>
+                <li class="@Html.IsSelected(action: "ByCountry")"><a href="@Url.Action("ByCountry", "Campaigns")">Civil</a></li>
+                <li class="@Html.IsSelected(action: "ByBU")"><a href="@Url.Action("ByBU", "Campaigns")">Interior Finishing</a></li>
+                <li class="@Html.IsSelected(action: "ByBU")"><a href="@Url.Action("ByBU", "Campaigns")">Mechanical & Electrical</a></li>
+                <li class="@Html.IsSelected(action: "ByTrade")"><a href="@Url.Action("ByTrade", "Campaigns")">Steel & Metal</a></li>
+                <li class="@Html.IsSelected(action: "ByCountry")"><a href="@Url.Action("ByCountry", "Campaigns")">Telecom</a></li>
+                <li class="@Html.IsSelected(action: "ByBU")"><a href="@Url.Action("ByBU", "Campaigns")">Industrial</a></li>
+                <li class="@Html.IsSelected(action: "ByBU")"><a href="@Url.Action("ByBU", "Campaigns")">Government</a></li>
+                <li class="@Html.IsSelected(action: "ByTrade")"><a href="@Url.Action("ByTrade", "Campaigns")">Energy & Heavy Industry</a></li>
+                <li class="@Html.IsSelected(action: "ByCountry")"><a href="@Url.Action("ByCountry", "Campaigns")">Healthcare</a></li>
+                <li class="@Html.IsSelected(action: "ByBU")"><a href="@Url.Action("ByBU", "Campaigns")">Software Services</a></li>
+                <li class="@Html.IsSelected(action: "ByBU")"><a href="@Url.Action("ByBU", "Campaigns")">Technical Marketing</a></li>
+            </ul>
+        </li>
+        <li class="@Html.IsSelected(controller: "Performance")">
+            <a href="@Url.Action("Index", "Performance")"> <span class="nav-label">Performance</span> </a>
+        </li>
+        <li class="@Html.IsSelected(controller: "Calender")">
+            <a href="@Url.Action("Index", "Calender")"> <span class="nav-label">Calender</span> </a>
+        </li>
+    </ul>
+</div>

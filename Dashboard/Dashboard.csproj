@@ -148,6 +148,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\demo.css" />
     <Content Include="Content\hilti.css" />
     <Content Include="Content\img\green%402x.png" />
     <Content Include="Content\img\green.png" />
@@ -251,6 +252,13 @@
     <Content Include="Icons\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.eot" />
     <Content Include="Icons\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.ttf" />
     <Content Include="Icons\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.woff" />
+    <Content Include="Images\Templates\rsz_template1.png" />
+    <Content Include="Images\Templates\Template1.png" />
+    <Content Include="Images\Templates\TemplateA.png" />
+    <Content Include="Images\Templates\TemplateA_Small.png" />
+    <Content Include="Images\Templates\TemplateB.png" />
+    <Content Include="Images\Templates\TemplateB_Small.png" />
+    <Content Include="Images\Templates\TemplateC.png" />
     <Content Include="Models\MarketingDashboard.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MarketingDashboard.edmx</DependentUpon>
@@ -284,6 +292,7 @@
     <Content Include="Scripts\jquery-1.12.4.min.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\jquery.hotspot.js" />
     <Content Include="Scripts\jquery.multiselect.js" />
     <Content Include="Scripts\moment-with-locales.js" />
     <Content Include="Scripts\moment-with-locales.min.js" />
@@ -2478,6 +2487,9 @@
     <Compile Include="Controllers\ErrorHandlerController.cs" />
     <Compile Include="Controllers\RoadMapController.cs" />
     <Compile Include="Controllers\StatusController.cs" />
+    <Compile Include="Controllers\TemplateAsController.cs" />
+    <Compile Include="Controllers\TemplateBsController.cs" />
+    <Compile Include="Controllers\TemplateCsController.cs" />
     <Compile Include="Controllers\TradesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2535,6 +2547,15 @@
       <DependentUpon>MarketingDashboard.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Status.cs">
+      <DependentUpon>MarketingDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TemplateA.cs">
+      <DependentUpon>MarketingDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TemplateB.cs">
+      <DependentUpon>MarketingDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TemplateC.cs">
       <DependentUpon>MarketingDashboard.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Trade.cs">
@@ -2718,6 +2739,22 @@
     <Content Include="Views\Shared\Error_Two.cshtml" />
     <Content Include="Views\ErrorHandler\Index.cshtml" />
     <Content Include="Views\Campaigns\ViewCampaign.cshtml" />
+    <Content Include="Views\Dashboard\Template.cshtml" />
+    <Content Include="Views\TemplateAs\Create.cshtml" />
+    <Content Include="Views\TemplateAs\Delete.cshtml" />
+    <Content Include="Views\TemplateAs\Details.cshtml" />
+    <Content Include="Views\TemplateAs\Edit.cshtml" />
+    <Content Include="Views\TemplateAs\Index.cshtml" />
+    <Content Include="Views\TemplateBs\Create.cshtml" />
+    <Content Include="Views\TemplateBs\Delete.cshtml" />
+    <Content Include="Views\TemplateBs\Details.cshtml" />
+    <Content Include="Views\TemplateBs\Edit.cshtml" />
+    <Content Include="Views\TemplateBs\Index.cshtml" />
+    <Content Include="Views\TemplateCs\Create.cshtml" />
+    <Content Include="Views\TemplateCs\Delete.cshtml" />
+    <Content Include="Views\TemplateCs\Details.cshtml" />
+    <Content Include="Views\TemplateCs\Edit.cshtml" />
+    <Content Include="Views\TemplateCs\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

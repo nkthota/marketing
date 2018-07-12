@@ -1,0 +1,367 @@
+﻿@model Dashboard.Models.Campaign
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="hpanel horange">
+                <div class="panel-heading">
+                </div>
+                <div class="panel-body" style="margin-right: 100px; margin-left: 100px;">
+                    <form class="form-horizontal" id="createCampaign">
+                        <h4 class="modal-title" style="font-weight: 100; color: #c0392b;">Create New Campaign</h4>
+                        <hr />
+                        <div class="row padfull20">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4"><label class="pad10">Campaign Name</label></div>
+                                    <div class="col-lg-6">
+                                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4"><label class="pad10">Date Submitted</label></div>
+                                    <div class="col-lg-4">
+                                        <div class='input-group date' id='datetimepicker1'>
+                                            @Html.EditorFor(model => model.DateSubmitted, new { htmlAttributes = new { @class = "form-control datefield" } })
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row padfull20">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4"><label class="pad10">Campaign Manager</label></div>
+                                    <div class="col-lg-6">@Html.EditorFor(model => model.CampaignProjectManager, new { htmlAttributes = new { @class = "form-control" } })</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4"><label class="pad10">Status</label></div>
+                                    <div class="col-lg-6">
+                                        @Html.DropDownList("StatusID", null, htmlAttributes: new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row padfull20">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-2"><label class="pad10">Campaign Objective</label></div>
+                                    <div class="col-lg-9">@Html.EditorFor(model => model.Objective, new { htmlAttributes = new { @class = "form-control" } })</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row padfull20">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4"><label class="pad10">Campaign Plan</label></div>
+                                    <div class="col-lg-6">@Html.DropDownList("CampaignPlanID", null, htmlAttributes: new { @class = "form-control" })</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4"><label class="pad10">Campaign Type</label></div>
+                                    <div class="col-lg-6">@Html.DropDownList("CampaignTypeID", null, htmlAttributes: new { @class = "form-control" })</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row padfull20">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4"><label class="pad10">Email System</label></div>
+                                    <div class="col-lg-6">
+                                        @Html.DropDownList("EmailSystemID", null, htmlAttributes: new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4"><label class="pad10">Campaign Lead</label></div>
+                                    <div class="col-lg-6">@Html.DropDownList("CampaignLeadID", null, htmlAttributes: new { @class = "form-control" })</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row padfull20">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4"><label class="pad10">Start Date</label></div>
+                                    <div class="col-lg-4">
+                                        <div class='input-group date' id='startDatePicker'>
+                                            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control datefield" } })
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4"><label class="pad10">End Date</label></div>
+                                    <div class="col-lg-4">
+                                        <div class='input-group date' id='endDatePicker'>
+                                            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control datefield" } })
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row padfull20">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4"><label class="pad10">Account Size</label></div>
+                                    <div class="col-lg-6">
+                                        @Html.DropDownList("AccountSizeMultiple", null, htmlAttributes: new { @class = "form-control", multiple = "multiple" })
+                                        @Html.HiddenFor(model => model.AccountSize, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4"><label class="pad10">Campaign Market(s)</label></div>
+                                    <div class="col-lg-6">
+                                        @Html.DropDownList("CampaignMarketMultiple", null, htmlAttributes: new { @class = "form-control", multiple = "multiple" })
+                                        @Html.HiddenFor(model => model.CampaignMarket, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row padfull20">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4"><label class="pad10">Landing Page</label></div>
+                                    <div class="col-lg-6">
+                                        <select id="LandingPageOptions" style="width:100px;">
+                                            <option value=""></option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                        @Html.HiddenFor(model => model.LandingPage, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4"><label class="pad10">Landing Page Contact</label></div>
+                                    <div class="col-lg-6">@Html.EditorFor(model => model.LandingUrl, new { htmlAttributes = new { @class = "form-control" } })</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row padfull20">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-2"><label class="pad10">Product(s)</label></div>
+                                    <div class="col-lg-10">@Html.TextAreaFor(model => model.CampaignProducts, new { htmlAttributes = new { @class = "form-control" } })</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row padfull20">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-2"><label class="pad10">Success Metric(s)</label></div>
+                                    <div class="col-lg-10">@Html.TextAreaFor(model => model.SuccessMetric, new { htmlAttributes = new { @class = "form-control" } })</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row padfull20">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-2"><label class="pad10">Notes</label></div>
+                                    <div class="col-lg-10">@Html.TextAreaFor(model => model.Notes, new { htmlAttributes = new { @class = "form-control" } })</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row padfull20">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-2"><label class="pad10">Email</label></div>
+                                    <div class="col-lg-10">@Html.TextAreaFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row padfull20">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4"><label class="pad10">Emails Deliveries</label></div>
+                                    <div class="col-lg-6">@Html.EditorFor(model => model.Email_Deliveries, new { htmlAttributes = new { @class = "form-control" } })</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4"><label class="pad10">Website Sessions</label></div>
+                                    <div class="col-lg-6">@Html.EditorFor(model => model.Website_Sessions, new { htmlAttributes = new { @class = "form-control" } })</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row padfull20">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4"><label class="pad10">Transactions</label></div>
+                                    <div class="col-lg-6">@Html.EditorFor(model => model.Transactions, new { htmlAttributes = new { @class = "form-control" } })</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4"><label class="pad10">Email Recipients</label></div>
+                                    <div class="col-lg-6">@Html.EditorFor(model => model.Email_Recipients, new { htmlAttributes = new { @class = "form-control" } })</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row padfull20">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4"><label class="pad10">Open Rate</label></div>
+                                    <div class="col-lg-6">@Html.EditorFor(model => model.Open_Rate, new { htmlAttributes = new { @class = "form-control" } })</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4"><label class="pad10">Click Rate</label></div>
+                                    <div class="col-lg-6">@Html.EditorFor(model => model.Click_Rate, new { htmlAttributes = new { @class = "form-control" } })</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row padfull20">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4"><label class="pad10">Bounce Rate</label></div>
+                                    <div class="col-lg-6">@Html.EditorFor(model => model.Bounce_Rate, new { htmlAttributes = new { @class = "form-control" } })</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-4"><label class="pad10">Conversion Rate</label></div>
+                                    <div class="col-lg-6">@Html.EditorFor(model => model.Conversion_Rate, new { htmlAttributes = new { @class = "form-control" } })</div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input id="save" type="submit" value="Save" class="btn w-xs" style="background-color: #666666; margin-right: 20px; margin-bottom: 100px; margin-top: 20px; width: 280px; float: right; color: white;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Styles {
+    <link href="@Url.Content("~/Content/themes/base/jquery-ui.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/themes/base/jquery.multiselect.css")" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/Content/bootstrap-datetimepicker.css" />
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+}
+
+@section Scripts {
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.12.1.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.multiselect.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.multiselect.js")"></script>
+
+    @Scripts.Render("~/bundles/validation/js")
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script type="text/javascript" src="/scripts/moment.min.js"></script>
+    <script type="text/javascript" src="/scripts/bootstrap-datetimepicker.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $("#datetimepicker1").datetimepicker({
+                format: 'MM/DD/YYYY'
+            });
+            $("#startDatePicker").datetimepicker({
+                format: 'MM/DD/YYYY'
+            });
+            $("#endDatePicker").datetimepicker({
+                format: 'MM/DD/YYYY'
+            });
+
+            $("#StatusID").select2();
+            $("#EmailSystemID").select2();
+            $("#CampaignTypeID").select2();
+            $("#CampaignOwnersID").select2();
+            $("#CampaignLeadID").select2();
+            $("#CampaignPlanID").select2();
+
+            $("#CampaignMarketMultiple").select2();
+            $("#AccountSizeMultiple").select2();
+
+            $("#LandingPageOptions").select2();
+
+            $('#CampaignProducts').summernote();
+            $('#Notes').summernote();
+            $('#SuccessMetric').summernote();
+            $('#Email').summernote();
+        });
+
+        $("#AccountSizeMultiple").change(function() {
+            var theID = [];
+            var theSelection = [];
+            $.each($("#AccountSizeMultiple").select2('data'), function(key, item) {
+                theID.push(item.id);
+                theSelection.push(item.text);
+            });
+            $("#AccountSize").val(theID.join(","));
+        });
+
+        $("#LandingPageOptions").change(function () {
+            var theID = [];
+            var theSelection = [];
+            $.each($("#LandingPageOptions").select2('data'), function (key, item) {
+                theID.push(item.id);
+                theSelection.push(item.text);
+            });
+            $("#LandingPage").val(theID.join(","));
+        });
+
+        $("#CampaignMarketMultiple").change(function() {
+            var theID = [];
+            var theSelection = [];
+            $.each($("#CampaignMarketMultiple").select2('data'), function(key, item) {
+                theID.push(item.id);
+                theSelection.push(item.text);
+            });
+            $("#CampaignMarket").val(theID.join(","));
+        });
+
+    </script>
+}

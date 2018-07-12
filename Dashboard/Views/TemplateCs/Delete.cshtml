@@ -1,0 +1,168 @@
+﻿@model Dashboard.Models.TemplateC
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TemplateC</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HeadLine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HeadLine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubHeadLine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubHeadLine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KeyBannerImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KeyBannerImage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IntroductionMessage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IntroductionMessage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CTAText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CTAText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CTALink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CTALink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecondaryCaption)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecondaryCaption)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Column1Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Column1Image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Column1Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Column1Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Column1Message)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Column1Message)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Column1CTAText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Column1CTAText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Column1CTALink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Column1CTALink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Column2Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Column2Image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Column2Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Column2Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Column2Message)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Column2Message)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Column2CTAText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Column2CTAText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Column2CTALink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Column2CTALink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Campaign.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Campaign.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

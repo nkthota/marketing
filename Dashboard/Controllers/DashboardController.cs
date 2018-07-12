@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace Dashboard.Controllers
 {
-    [Authorize(Roles = "Marketing_Admin")]
+    //[Authorize(Roles = "Marketing_Admin")]
     public class DashboardController : Controller
     {
         private MarketingEntities db = new MarketingEntities();
@@ -15,6 +15,11 @@ namespace Dashboard.Controllers
         public ActionResult Index()
         {
             return View(db.Campaigns.ToList());
+        }
+
+        public ActionResult Template()
+        {
+            return View();
         }
     }
 }

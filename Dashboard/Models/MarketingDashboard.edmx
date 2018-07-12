@@ -52,6 +52,7 @@
           <Property Name="CAGraphWeekRevenue" Type="varchar(max)" />
           <Property Name="CAGraphWeeks" Type="varchar(max)" />
           <Property Name="Email_Status" Type="varchar" MaxLength="32" />
+          <Property Name="TemplateType" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="CampaignLead">
           <Key>
@@ -139,6 +140,78 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TemplateA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CampaignID" Type="int" />
+          <Property Name="HeadLine" Type="varchar(max)" />
+          <Property Name="SubHeadLine" Type="varchar(max)" />
+          <Property Name="KeyBannerImage" Type="varchar(max)" />
+          <Property Name="IntroductionMessage" Type="varchar(max)" />
+          <Property Name="CTAText" Type="varchar(max)" />
+          <Property Name="CTALink" Type="varchar(max)" />
+          <Property Name="SecondaryCaption" Type="varchar(max)" />
+          <Property Name="Column1Image" Type="varchar(max)" />
+          <Property Name="Column1Title" Type="varchar(max)" />
+          <Property Name="Column1Message" Type="varchar(max)" />
+          <Property Name="Column1CTAText" Type="varchar(max)" />
+          <Property Name="Column1CTALink" Type="varchar(max)" />
+          <Property Name="Column2Image" Type="varchar(max)" />
+          <Property Name="Column2Title" Type="varchar(max)" />
+          <Property Name="Column2Message" Type="varchar(max)" />
+          <Property Name="Column2CTAText" Type="varchar(max)" />
+          <Property Name="Column2CTALink" Type="varchar(max)" />
+          <Property Name="Column3Image" Type="varchar(max)" />
+          <Property Name="Column3Title" Type="varchar(max)" />
+          <Property Name="Column3Message" Type="varchar(max)" />
+          <Property Name="Column3CTAText" Type="varchar(max)" />
+          <Property Name="Column3CTALink" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="TemplateB">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CampaignID" Type="int" />
+          <Property Name="HeadLine" Type="varchar(max)" />
+          <Property Name="SubHeadLine" Type="varchar(max)" />
+          <Property Name="KeyBannerImage" Type="varchar(max)" />
+          <Property Name="IntroductionMessage" Type="varchar(max)" />
+          <Property Name="CTAText" Type="varchar(max)" />
+          <Property Name="CTALink" Type="varchar(max)" />
+          <Property Name="SecondaryCaption" Type="varchar(max)" />
+          <Property Name="Column1Image" Type="varchar(max)" />
+          <Property Name="Column1Title" Type="varchar(max)" />
+          <Property Name="Column1Message" Type="varchar(max)" />
+          <Property Name="Column1CTAText" Type="varchar(max)" />
+          <Property Name="Column1CTALink" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="TemplateC">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CampaignID" Type="int" />
+          <Property Name="HeadLine" Type="varchar(max)" />
+          <Property Name="SubHeadLine" Type="varchar(max)" />
+          <Property Name="KeyBannerImage" Type="varchar(max)" />
+          <Property Name="IntroductionMessage" Type="varchar(max)" />
+          <Property Name="CTAText" Type="varchar(max)" />
+          <Property Name="CTALink" Type="varchar(max)" />
+          <Property Name="SecondaryCaption" Type="varchar(max)" />
+          <Property Name="Column1Image" Type="varchar(max)" />
+          <Property Name="Column1Title" Type="varchar(max)" />
+          <Property Name="Column1Message" Type="varchar(max)" />
+          <Property Name="Column1CTAText" Type="varchar(max)" />
+          <Property Name="Column1CTALink" Type="varchar(max)" />
+          <Property Name="Column2Image" Type="varchar(max)" />
+          <Property Name="Column2Title" Type="varchar(max)" />
+          <Property Name="Column2Message" Type="varchar(max)" />
+          <Property Name="Column2CTAText" Type="varchar(max)" />
+          <Property Name="Column2CTALink" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Trade">
           <Key>
@@ -285,6 +358,42 @@ warning 6002: The table/view 'Marketing.dbo.vCampaignTypeMonths' does not have a
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__TemplateA__Campa__3C34F16F">
+          <End Role="Campaign" Type="Self.Campaign" Multiplicity="0..1" />
+          <End Role="TemplateA" Type="Self.TemplateA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TemplateA">
+              <PropertyRef Name="CampaignID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TemplateB__Campa__47A6A41B">
+          <End Role="Campaign" Type="Self.Campaign" Multiplicity="0..1" />
+          <End Role="TemplateB" Type="Self.TemplateB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TemplateB">
+              <PropertyRef Name="CampaignID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TemplateC__Campa__44CA3770">
+          <End Role="Campaign" Type="Self.Campaign" Multiplicity="0..1" />
+          <End Role="TemplateC" Type="Self.TemplateC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TemplateC">
+              <PropertyRef Name="CampaignID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="MarketingModelStoreContainer">
           <EntitySet Name="AccountSize" EntityType="Self.AccountSize" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Campaign" EntityType="Self.Campaign" Schema="dbo" store:Type="Tables" />
@@ -299,6 +408,9 @@ warning 6002: The table/view 'Marketing.dbo.vCampaignTypeMonths' does not have a
           <EntitySet Name="EmailStatus" EntityType="Self.EmailStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmailSystem" EntityType="Self.EmailSystem" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TemplateA" EntityType="Self.TemplateA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TemplateB" EntityType="Self.TemplateB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TemplateC" EntityType="Self.TemplateC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Trade" EntityType="Self.Trade" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="vCampaignTradeMonths" EntityType="Self.vCampaignTradeMonths" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -351,6 +463,18 @@ warning 6002: The table/view 'Marketing.dbo.vCampaignTypeMonths' does not have a
           <AssociationSet Name="FK__CampaignT__Trade__4E88ABD4" Association="Self.FK__CampaignT__Trade__4E88ABD4">
             <End Role="Trade" EntitySet="Trade" />
             <End Role="CampaignTrade" EntitySet="CampaignTrade" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TemplateA__Campa__3C34F16F" Association="Self.FK__TemplateA__Campa__3C34F16F">
+            <End Role="Campaign" EntitySet="Campaign" />
+            <End Role="TemplateA" EntitySet="TemplateA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TemplateB__Campa__47A6A41B" Association="Self.FK__TemplateB__Campa__47A6A41B">
+            <End Role="Campaign" EntitySet="Campaign" />
+            <End Role="TemplateB" EntitySet="TemplateB" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TemplateC__Campa__44CA3770" Association="Self.FK__TemplateC__Campa__44CA3770">
+            <End Role="Campaign" EntitySet="Campaign" />
+            <End Role="TemplateC" EntitySet="TemplateC" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -519,6 +643,21 @@ warning 6002: The table/view 'Marketing.dbo.vCampaignTypeMonths' does not have a
           <EntitySet Name="vCampaignTypeMonths" EntityType="MarketingModel.vCampaignTypeMonth" />
           <EntitySet Name="vCampaignTradeMonths" EntityType="MarketingModel.vCampaignTradeMonth" />
           <EntitySet Name="EmailStatus" EntityType="MarketingModel.EmailStatu" />
+          <EntitySet Name="TemplateAs" EntityType="MarketingModel.TemplateA" />
+          <AssociationSet Name="FK__TemplateA__Campa__3C34F16F" Association="MarketingModel.FK__TemplateA__Campa__3C34F16F">
+            <End Role="Campaign" EntitySet="Campaigns" />
+            <End Role="TemplateA" EntitySet="TemplateAs" />
+          </AssociationSet>
+          <EntitySet Name="TemplateCs" EntityType="MarketingModel.TemplateC" />
+          <AssociationSet Name="FK__TemplateC__Campa__44CA3770" Association="MarketingModel.FK__TemplateC__Campa__44CA3770">
+            <End Role="Campaign" EntitySet="Campaigns" />
+            <End Role="TemplateC" EntitySet="TemplateCs" />
+          </AssociationSet>
+          <EntitySet Name="TemplateBs" EntityType="MarketingModel.TemplateB" />
+          <AssociationSet Name="FK__TemplateB__Campa__47A6A41B" Association="MarketingModel.FK__TemplateB__Campa__47A6A41B">
+            <End Role="Campaign" EntitySet="Campaigns" />
+            <End Role="TemplateB" EntitySet="TemplateBs" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="CampaignPlan">
           <Key>
@@ -589,6 +728,10 @@ warning 6002: The table/view 'Marketing.dbo.vCampaignTypeMonths' does not have a
           <Property Name="CAGraphWeekRevenue" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="CAGraphWeeks" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Email_Status" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TemplateAs" Relationship="MarketingModel.FK__TemplateA__Campa__3C34F16F" FromRole="Campaign" ToRole="TemplateA" />
+          <Property Name="TemplateType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TemplateCs" Relationship="MarketingModel.FK__TemplateC__Campa__44CA3770" FromRole="Campaign" ToRole="TemplateC" />
+          <NavigationProperty Name="TemplateBs" Relationship="MarketingModel.FK__TemplateB__Campa__47A6A41B" FromRole="Campaign" ToRole="TemplateB" />
         </EntityType>
         <Association Name="FK__Campaign__Campai__412EB0B6">
           <End Type="MarketingModel.CampaignType" Role="CampaignType" Multiplicity="1" />
@@ -705,6 +848,117 @@ warning 6002: The table/view 'Marketing.dbo.vCampaignTypeMonths' does not have a
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="TemplateA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CampaignID" Type="Int32" />
+          <Property Name="HeadLine" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SubHeadLine" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="KeyBannerImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IntroductionMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CTAText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CTALink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SecondaryCaption" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column1Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column1Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column1Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column1CTAText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column1CTALink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column2Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column2Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column2Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column2CTAText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column2CTALink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column3Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column3Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column3Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column3CTAText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column3CTALink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Campaign" Relationship="MarketingModel.FK__TemplateA__Campa__3C34F16F" FromRole="TemplateA" ToRole="Campaign" />
+        </EntityType>
+        <Association Name="FK__TemplateA__Campa__3C34F16F">
+          <End Type="MarketingModel.Campaign" Role="Campaign" Multiplicity="0..1" />
+          <End Type="MarketingModel.TemplateA" Role="TemplateA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TemplateA">
+              <PropertyRef Name="CampaignID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TemplateC">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CampaignID" Type="Int32" />
+          <Property Name="HeadLine" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SubHeadLine" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="KeyBannerImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IntroductionMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CTAText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CTALink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SecondaryCaption" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column1Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column1Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column1Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column1CTAText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column1CTALink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column2Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column2Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column2Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column2CTAText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column2CTALink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Campaign" Relationship="MarketingModel.FK__TemplateC__Campa__44CA3770" FromRole="TemplateC" ToRole="Campaign" />
+        </EntityType>
+        <Association Name="FK__TemplateC__Campa__44CA3770">
+          <End Type="MarketingModel.Campaign" Role="Campaign" Multiplicity="0..1" />
+          <End Type="MarketingModel.TemplateC" Role="TemplateC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TemplateC">
+              <PropertyRef Name="CampaignID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TemplateB">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CampaignID" Type="Int32" />
+          <Property Name="HeadLine" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SubHeadLine" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="KeyBannerImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IntroductionMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CTAText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CTALink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SecondaryCaption" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column1Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column1Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column1Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column1CTAText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Column1CTALink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Campaign" Relationship="MarketingModel.FK__TemplateB__Campa__47A6A41B" FromRole="TemplateB" ToRole="Campaign" />
+        </EntityType>
+        <Association Name="FK__TemplateB__Campa__47A6A41B">
+          <End Type="MarketingModel.Campaign" Role="Campaign" Multiplicity="0..1" />
+          <End Type="MarketingModel.TemplateB" Role="TemplateB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TemplateB">
+              <PropertyRef Name="CampaignID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -822,6 +1076,7 @@ warning 6002: The table/view 'Marketing.dbo.vCampaignTypeMonths' does not have a
           <EntitySetMapping Name="Campaigns">
             <EntityTypeMapping TypeName="MarketingModel.Campaign">
               <MappingFragment StoreEntitySet="Campaign">
+                <ScalarProperty Name="TemplateType" ColumnName="TemplateType" />
                 <ScalarProperty Name="Email_Status" ColumnName="Email_Status" />
                 <ScalarProperty Name="CAGraphWeeks" ColumnName="CAGraphWeeks" />
                 <ScalarProperty Name="CAGraphWeekRevenue" ColumnName="CAGraphWeekRevenue" />
@@ -885,6 +1140,81 @@ warning 6002: The table/view 'Marketing.dbo.vCampaignTypeMonths' does not have a
             <EntityTypeMapping TypeName="MarketingModel.EmailStatu">
               <MappingFragment StoreEntitySet="EmailStatus">
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TemplateAs">
+            <EntityTypeMapping TypeName="MarketingModel.TemplateA">
+              <MappingFragment StoreEntitySet="TemplateA">
+                <ScalarProperty Name="Column3CTALink" ColumnName="Column3CTALink" />
+                <ScalarProperty Name="Column3CTAText" ColumnName="Column3CTAText" />
+                <ScalarProperty Name="Column3Message" ColumnName="Column3Message" />
+                <ScalarProperty Name="Column3Title" ColumnName="Column3Title" />
+                <ScalarProperty Name="Column3Image" ColumnName="Column3Image" />
+                <ScalarProperty Name="Column2CTALink" ColumnName="Column2CTALink" />
+                <ScalarProperty Name="Column2CTAText" ColumnName="Column2CTAText" />
+                <ScalarProperty Name="Column2Message" ColumnName="Column2Message" />
+                <ScalarProperty Name="Column2Title" ColumnName="Column2Title" />
+                <ScalarProperty Name="Column2Image" ColumnName="Column2Image" />
+                <ScalarProperty Name="Column1CTALink" ColumnName="Column1CTALink" />
+                <ScalarProperty Name="Column1CTAText" ColumnName="Column1CTAText" />
+                <ScalarProperty Name="Column1Message" ColumnName="Column1Message" />
+                <ScalarProperty Name="Column1Title" ColumnName="Column1Title" />
+                <ScalarProperty Name="Column1Image" ColumnName="Column1Image" />
+                <ScalarProperty Name="SecondaryCaption" ColumnName="SecondaryCaption" />
+                <ScalarProperty Name="CTALink" ColumnName="CTALink" />
+                <ScalarProperty Name="CTAText" ColumnName="CTAText" />
+                <ScalarProperty Name="IntroductionMessage" ColumnName="IntroductionMessage" />
+                <ScalarProperty Name="KeyBannerImage" ColumnName="KeyBannerImage" />
+                <ScalarProperty Name="SubHeadLine" ColumnName="SubHeadLine" />
+                <ScalarProperty Name="HeadLine" ColumnName="HeadLine" />
+                <ScalarProperty Name="CampaignID" ColumnName="CampaignID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TemplateCs">
+            <EntityTypeMapping TypeName="MarketingModel.TemplateC">
+              <MappingFragment StoreEntitySet="TemplateC">
+                <ScalarProperty Name="Column2CTALink" ColumnName="Column2CTALink" />
+                <ScalarProperty Name="Column2CTAText" ColumnName="Column2CTAText" />
+                <ScalarProperty Name="Column2Message" ColumnName="Column2Message" />
+                <ScalarProperty Name="Column2Title" ColumnName="Column2Title" />
+                <ScalarProperty Name="Column2Image" ColumnName="Column2Image" />
+                <ScalarProperty Name="Column1CTALink" ColumnName="Column1CTALink" />
+                <ScalarProperty Name="Column1CTAText" ColumnName="Column1CTAText" />
+                <ScalarProperty Name="Column1Message" ColumnName="Column1Message" />
+                <ScalarProperty Name="Column1Title" ColumnName="Column1Title" />
+                <ScalarProperty Name="Column1Image" ColumnName="Column1Image" />
+                <ScalarProperty Name="SecondaryCaption" ColumnName="SecondaryCaption" />
+                <ScalarProperty Name="CTALink" ColumnName="CTALink" />
+                <ScalarProperty Name="CTAText" ColumnName="CTAText" />
+                <ScalarProperty Name="IntroductionMessage" ColumnName="IntroductionMessage" />
+                <ScalarProperty Name="KeyBannerImage" ColumnName="KeyBannerImage" />
+                <ScalarProperty Name="SubHeadLine" ColumnName="SubHeadLine" />
+                <ScalarProperty Name="HeadLine" ColumnName="HeadLine" />
+                <ScalarProperty Name="CampaignID" ColumnName="CampaignID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TemplateBs">
+            <EntityTypeMapping TypeName="MarketingModel.TemplateB">
+              <MappingFragment StoreEntitySet="TemplateB">
+                <ScalarProperty Name="Column1CTALink" ColumnName="Column1CTALink" />
+                <ScalarProperty Name="Column1CTAText" ColumnName="Column1CTAText" />
+                <ScalarProperty Name="Column1Message" ColumnName="Column1Message" />
+                <ScalarProperty Name="Column1Title" ColumnName="Column1Title" />
+                <ScalarProperty Name="Column1Image" ColumnName="Column1Image" />
+                <ScalarProperty Name="SecondaryCaption" ColumnName="SecondaryCaption" />
+                <ScalarProperty Name="CTALink" ColumnName="CTALink" />
+                <ScalarProperty Name="CTAText" ColumnName="CTAText" />
+                <ScalarProperty Name="IntroductionMessage" ColumnName="IntroductionMessage" />
+                <ScalarProperty Name="KeyBannerImage" ColumnName="KeyBannerImage" />
+                <ScalarProperty Name="SubHeadLine" ColumnName="SubHeadLine" />
+                <ScalarProperty Name="HeadLine" ColumnName="HeadLine" />
+                <ScalarProperty Name="CampaignID" ColumnName="CampaignID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -1,0 +1,112 @@
+﻿@model IEnumerable<Dashboard.Models.Campaign>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<div class="normalheader ">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right m-t-lg">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><a href="/Roadmap">Roadmap</a></li>
+                    <li class="active">
+                        <span>Campaigns</span>
+                    </li>
+                </ol>
+            </div>
+            <h2 class="hmodal-danger modal-title" style="color: #c0392b;">
+                Campaigns
+            </h2>
+            <h5 style="font-weight: 100;">List of all campaigns</h5>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="content animate-panel">
+        <div class="row">
+            <div class="col-lg-3">
+                <button type="button" class="btn btn-outline btn-danger2" onclick=" window.open('/Campaigns/Create', '_blank')">Create</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="hpanel">
+                    <div class="panel-heading">
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table id="example1" class="display table table-bordered" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Campaign Name</th>
+                                        <th>Status</th>
+                                        <th>Campaign Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var camp in Model.ToList())
+                                {
+                                    <tr>
+                                        <td style="text-align:center;">
+                                            <div class="btn-group">
+                                                <button data-toggle="dropdown" style="color:#e74c3c;" class="btn btn-xs dropdown-toggle" aria-expanded="false">Action <span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="/Campaigns/Details/@camp.ID">Details</a></li>
+                                                    <li><a href="/Campaigns/Edit/@camp.ID" class="font-bold">Edit</a></li>
+                                                    <li><a href="/Campaigns/Delete/@camp.ID">Delete</a></li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="/CampaignMonths/Index">Campaign Months</a></li>
+                                                    <li><a href="/CampaignTrades/Index">Campaign Trades</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                        <td>@camp.Name</td>
+                                        <td>@camp.Status.Name</td>
+                                        <td>@camp.CampaignType.Type</td>
+
+                                    </tr>
+                            }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/bundles/datatables/css")
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/datatables/js")
+    @Scripts.Render("~/bundles/datatablesBootstrap/js")
+    @Scripts.Render("~/bundles/datatablesPlugins/js")
+
+    <script type="text/javascript">
+
+        $(function () {
+
+            // Initialize Example 1
+            $('#example1').dataTable({
+                dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>tp",
+                "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                "pageLength": 100,
+                buttons: [
+                    { extend: 'copy', className: 'btn-sm' },
+                    { extend: 'csv', title: 'ExampleFile', className: 'btn-sm' },
+                    { extend: 'pdf', title: 'ExampleFile', className: 'btn-sm' },
+                    { extend: 'print', className: 'btn-sm' }
+                ]
+            });
+
+        });
+
+    </script>
+}

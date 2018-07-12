@@ -1,0 +1,615 @@
+﻿@model IEnumerable<Dashboard.Models.Campaign>
+
+@{
+    ViewBag.Title = "Index";
+    List<CalenderYear> displayCalender = ViewBag.CalenderYear;
+    var currentRowData = "";
+    List<Dashboard.Models.Trade> currentTrades = ViewBag.Trades;
+}
+
+<div class="content">
+<div class="row">
+    <div class="col-lg-10">
+            
+    </div>
+    <div class="col-lg-2">
+        <div class="btn-group" style="float: right;">
+            <button data-toggle="dropdown" class="btn dropdown-toggle" aria-expanded="false" style="color: white; background-color: #D2051E; font-size: 16px; font-weight: bold;"><i class="pe-7s-filter" style="padding-right: 5px;"></i>View By Trade <span class="caret"></span></button>
+            <ul class="dropdown-menu">                
+                @foreach (var trade in currentTrades)
+                {
+                    <li><a href="/Campaigns/Schedule/@trade.ID">@trade.Name</a></li>
+                }
+                <li class="divider"></li>
+                <li><a href="/Campaigns/Schedule">All Trades</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="largeview" style="overflow: auto; z-index: 100; position: relative;">
+<table id="eventview" class="table table-bordered" style="table-layout: fixed; margin: 25px;">
+    <col width="400">
+    <col width="400">
+    <col width="400">
+    <col width="400">
+    <col width="400">
+    <col width="400">
+    <col width="400">
+    <col width="400">
+    <col width="400">
+    <col width="400">
+    <col width="400">
+    <col width="400">
+<thead>
+<tr>
+    <th class="calender-header">
+        January
+    </th>
+    <th class="calender-header">
+        February
+    </th>
+    <th class="calender-header">
+        March
+    </th>
+    <th class="calender-header">
+        April
+    </th>
+    <th class="calender-header">
+        May
+    </th>
+    <th class="calender-header">
+        June
+    </th>
+    <th class="calender-header">
+        July
+    </th>
+    <th class="calender-header">
+        August
+    </th>
+    <th class="calender-header">
+        September
+    </th>
+    <th class="calender-header">
+        October
+    </th>
+    <th class="calender-header">
+        Novermber
+    </th>
+    <th class="calender-header">
+        December
+    </th>
+</tr>
+</thead>
+<tbody>
+@{
+    foreach (var cmonth in displayCalender)
+    {
+        currentRowData = "<tr><td>" + cmonth.Jan + "</td><td>" + cmonth.Feb + "</td><td>" + cmonth.Mar + "</td><td>" + cmonth.Apr + "</td><td>" + cmonth.May + "</td><td>" + cmonth.Jun + "</td><td>" + cmonth.Jul + "</td><td>" + cmonth.Aug + "</td><td>" + cmonth.Sep + "</td><td>" + cmonth.Oct + "</td><td>" + cmonth.Nov + "</td><td>" + cmonth.Dec + "</td></tr>";
+        <tr @(currentRowData == "<tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>" ? string.Empty : "style=\"display: none; \"")>
+
+        @{
+            if (cmonth.Jan != 0)
+            {
+                <td>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-lg-12" style="margin-top: 10px;">
+                            <div class="hpanel hred hpanel-margin">
+                                <div class="panel-body panel-event" style="background-color: #c7c2c242;">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="col-lg-12" style="text-align: right;">
+                                                    <h5 class="campaign-title">
+                                                        @Model.FirstOrDefault(p => p.ID == cmonth.Jan).Name
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2 border-left">
+                                            <div class="row">
+                                                <div class="col-lg-6" style="text-align: left;">
+                                                    @{
+                                                        foreach (var trd in Model.FirstOrDefault(p => p.ID == cmonth.Jan).CampaignTrades.ToList())
+                                                        {
+                                                            <span class="badge" style="background-color: @trd.Trade.Color;">@trd.Trade.Name</span>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            }
+            else
+            {
+                <td></td>
+            }
+            if (cmonth.Feb != 0)
+            {
+                <td>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-lg-12" style="margin-top: 10px;">
+                            <div class="hpanel hred hpanel-margin">
+                                <div class="panel-body panel-event" style="background-color: #c7c2c242;">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="col-lg-12" style="text-align: right;">
+                                                    <h5 class="campaign-title">
+                                                        @Model.FirstOrDefault(p => p.ID == cmonth.Feb).Name
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 border-left">
+                                            <div class="row">
+                                                <div class="col-lg-12" style="text-align: left;">
+                                                    @{
+                                                        foreach (var trd in Model.FirstOrDefault(p => p.ID == cmonth.Feb).CampaignTrades.ToList())
+                                                        {
+                                                            <span class="badge" name="@trd.Trade.Name" style="background-color: @trd.Trade.Color;">@trd.Trade.Name</span>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            }
+            else
+            {
+                <td></td>
+            }
+            if (cmonth.Mar != 0)
+            {
+                <td>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-lg-12" style="margin-top: 10px;">
+                            <div class="hpanel hred hpanel-margin">
+                                <div class="panel-body panel-event" style="background-color: #c7c2c242;">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="col-lg-12" style="text-align: right;">
+                                                    <h5 class="campaign-title">
+                                                        @Model.FirstOrDefault(p => p.ID == cmonth.Mar).Name
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 border-left">
+                                            <div class="row">
+                                                <div class="col-lg-12" style="text-align: left;">
+                                                    @{
+                                                        foreach (var trd in Model.FirstOrDefault(p => p.ID == cmonth.Mar).CampaignTrades.ToList())
+                                                        {
+                                                            <span class="badge" style="background-color: @trd.Trade.Color;">@trd.Trade.Name</span>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            }
+            else
+            {
+                <td></td>
+            }
+            if (cmonth.Apr != 0)
+            {
+                <td>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-lg-12" style="margin-top: 10px;">
+                            <div class="hpanel hred hpanel-margin">
+                                <div class="panel-body panel-event" style="background-color: #c7c2c242;">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="col-lg-12" style="text-align: right;">
+                                                    <h5 class="campaign-title">
+                                                        @Model.FirstOrDefault(p => p.ID == cmonth.Apr).Name
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 border-left">
+                                            <div class="row">
+                                                <div class="col-lg-12" style="text-align: left;">
+                                                    @{
+                                                        foreach (var trd in Model.FirstOrDefault(p => p.ID == cmonth.Apr).CampaignTrades.ToList())
+                                                        {
+                                                            <span class="badge" style="background-color: @trd.Trade.Color;">@trd.Trade.Name</span>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            }
+            else
+            {
+                <td></td>
+            }
+            if (cmonth.May != 0)
+            {
+                <td>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-lg-12" style="margin-top: 10px;">
+                            <div class="hpanel hred hpanel-margin">
+                                <div class="panel-body panel-event" style="background-color: #c7c2c242;">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="col-lg-12" style="text-align: right;">
+                                                    <h5 class="campaign-title">
+                                                        @Model.FirstOrDefault(p => p.ID == cmonth.May).Name
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 border-left">
+                                            <div class="row">
+                                                <div class="col-lg-12" style="text-align: left;">
+                                                    @{
+                                                        foreach (var trd in Model.FirstOrDefault(p => p.ID == cmonth.May).CampaignTrades.ToList())
+                                                        {
+                                                            <span class="badge" style="background-color: @trd.Trade.Color;">@trd.Trade.Name</span>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            }
+            else
+            {
+                <td></td>
+            }
+            if (cmonth.Jun != 0)
+            {
+                <td>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-lg-12" style="margin-top: 10px;">
+                            <div class="hpanel hred hpanel-margin">
+                                <div class="panel-body panel-event" style="background-color: #c7c2c242;">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="col-lg-12" style="text-align: right;">
+                                                    <h5 class="campaign-title">
+                                                        @Model.FirstOrDefault(p => p.ID == cmonth.Jun).Name
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 border-left">
+                                            <div class="row">
+                                                <div class="col-lg-12" style="text-align: left;">
+                                                    @{
+                                                        foreach (var trd in Model.FirstOrDefault(p => p.ID == cmonth.Jun).CampaignTrades.ToList())
+                                                        {
+                                                            <span class="badge" style="background-color: @trd.Trade.Color;">@trd.Trade.Name</span>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            }
+            else
+            {
+                <td></td>
+            }
+            if (cmonth.Jul != 0)
+            {
+                <td>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-lg-12" style="margin-top: 10px;">
+                            <div class="hpanel hred hpanel-margin">
+                                <div class="panel-body panel-event" style="background-color: #c7c2c242;">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="col-lg-12" style="text-align: right;">
+                                                    <h5 class="campaign-title">
+                                                        @Model.FirstOrDefault(p => p.ID == cmonth.Jul).Name
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 border-left">
+                                            <div class="row">
+                                                <div class="col-lg-12" style="text-align: left;">
+                                                    @{
+                                                        foreach (var trd in Model.FirstOrDefault(p => p.ID == cmonth.Jul).CampaignTrades.ToList())
+                                                        {
+                                                            <span class="badge" style="background-color: @trd.Trade.Color;">@trd.Trade.Name</span>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            }
+            else
+            {
+                <td></td>
+            }
+            if (cmonth.Aug != 0)
+            {
+                <td>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-lg-12" style="margin-top: 10px;">
+                            <div class="hpanel hred hpanel-margin">
+                                <div class="panel-body panel-event" style="background-color: #c7c2c242;">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="col-lg-12" style="text-align: right;">
+                                                    <h5 class="campaign-title">
+                                                        @Model.FirstOrDefault(p => p.ID == cmonth.Aug).Name
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 border-left">
+                                            <div class="row">
+                                                <div class="col-lg-12" style="text-align: left;">
+                                                    @{
+                                                        foreach (var trd in Model.FirstOrDefault(p => p.ID == cmonth.Aug).CampaignTrades.ToList())
+                                                        {
+                                                            <span class="badge" style="background-color: @trd.Trade.Color;">@trd.Trade.Name</span>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            }
+            else
+            {
+                <td></td>
+            }
+            if (cmonth.Sep != 0)
+            {
+                <td>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-lg-12" style="margin-top: 10px;">
+                            <div class="hpanel hred hpanel-margin">
+                                <div class="panel-body panel-event" style="background-color: #c7c2c242;">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="col-lg-12" style="text-align: right;">
+                                                    <h5 class="campaign-title">
+                                                        @Model.FirstOrDefault(p => p.ID == cmonth.Sep).Name
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 border-left">
+                                            <div class="row">
+                                                <div class="col-lg-12" style="text-align: left;">
+                                                    @{
+                                                        foreach (var trd in Model.FirstOrDefault(p => p.ID == cmonth.Sep).CampaignTrades.ToList())
+                                                        {
+                                                            <span class="badge" style="background-color: @trd.Trade.Color;">@trd.Trade.Name</span>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            }
+            else
+            {
+                <td></td>
+            }
+            if (cmonth.Oct != 0)
+            {
+                <td>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-lg-12" style="margin-top: 10px;">
+                            <div class="hpanel hred hpanel-margin">
+                                <div class="panel-body panel-event" style="background-color: #c7c2c242;">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="col-lg-12" style="text-align: right;">
+                                                    <h5 class="campaign-title">
+                                                        @Model.FirstOrDefault(p => p.ID == cmonth.Oct).Name
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 border-left">
+                                            <div class="row">
+                                                <div class="col-lg-12" style="text-align: left;">
+                                                    @{
+                                                        foreach (var trd in Model.FirstOrDefault(p => p.ID == cmonth.Oct).CampaignTrades.ToList())
+                                                        {
+                                                            <span class="badge" style="background-color: @trd.Trade.Color;">@trd.Trade.Name</span>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            }
+            else
+            {
+                <td></td>
+            }
+            if (cmonth.Nov != 0)
+            {
+                <td>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-lg-12" style="margin-top: 10px;">
+                            <div class="hpanel hred hpanel-margin">
+                                <div class="panel-body panel-event" style="background-color: #c7c2c242;">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="col-lg-12" style="text-align: right;">
+                                                    <h5 class="campaign-title">
+                                                        @Model.FirstOrDefault(p => p.ID == cmonth.Nov).Name
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 border-left">
+                                            <div class="row">
+                                                <div class="col-lg-12" style="text-align: left;">
+                                                    @{
+                                                        foreach (var trd in Model.FirstOrDefault(p => p.ID == cmonth.Nov).CampaignTrades.ToList())
+                                                        {
+                                                            <span class="badge" style="background-color: @trd.Trade.Color;">@trd.Trade.Name</span>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            }
+            else
+            {
+                <td></td>
+            }
+            if (cmonth.Dec != 0)
+            {
+                <td>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-lg-12" style="margin-top: 10px;">
+                            <div class="hpanel hred hpanel-margin">
+                                <div class="panel-body panel-event" style="background-color: #c7c2c242;">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="col-lg-12" style="text-align: right;">
+                                                    <h5 class="campaign-title">
+                                                        @Model.FirstOrDefault(p => p.ID == cmonth.Dec).Name
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 border-left">
+                                            <div class="row">
+                                                <div class="col-lg-12" style="text-align: left;">
+                                                    @{
+                                                        foreach (var trd in Model.FirstOrDefault(p => p.ID == cmonth.Dec).CampaignTrades.ToList())
+                                                        {
+                                                            <span class="badge" style="background-color: @trd.Trade.Color;">@trd.Trade.Name</span>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            }
+            else
+            {
+                <td></td>
+            }
+        }
+
+        </tr>
+    }
+}
+</tbody>
+</table>
+</div>
+</div>
+
+
+@section Styles {
+    @Styles.Render("~/bundles/xeditable/css")
+    @Styles.Render("~/bundles/select2/css")
+    @Styles.Render("~/bundles/touchspin/css")
+    @Styles.Render("~/bundles/datepicker/css")
+    @Styles.Render("~/bundles/bootstrapCheckbox/css")
+    @Styles.Render("~/bundles/datetimepicker/css")
+    @Styles.Render("~/bundles/clockpicker/css")
+    @Styles.Render("~/bundles/loader/css")
+    @Styles.Render("~/bundles/floating/css")
+    
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/moment/js")
+    @Scripts.Render("~/bundles/xeditable/js")
+    @Scripts.Render("~/bundles/select2/js")
+    @Scripts.Render("~/bundles/touchspin/js")
+    @Scripts.Render("~/bundles/datepicker/js")
+    @Scripts.Render("~/bundles/datetimepicker/js")
+    @Scripts.Render("~/bundles/clockpicker/js")
+    @Scripts.Render("~/bundles/loader/js")
+    @Scripts.Render("~/bundles/floating/js")
+
+
+    <script type="text/javascript">
+        
+        //$("div[name='eventbox']:contains('Dust')").hide();
+        $('body').addClass('hide-sidebar');
+        $(document).ready(function () {
+            $("#largeview").floatingScroll();
+        });
+    </script>
+}

@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MarketingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AccountSize">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccSize" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Campaign">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" Nullable="false" />
+    <Property Name="Objective" Type="varchar(max)" />
+    <Property Name="CampaignTypeID" Type="int" Nullable="false" />
+    <Property Name="CampaignLeadID" Type="int" Nullable="false" />
+    <Property Name="StatusID" Type="int" Nullable="false" />
+    <Property Name="EmailSystemID" Type="int" Nullable="false" />
+    <Property Name="CampaignPlanID" Type="int" />
+    <Property Name="StartDate" Type="date" />
+    <Property Name="EndDate" Type="date" />
+    <Property Name="DateSubmitted" Type="date" />
+    <Property Name="CampaignMarket" Type="varchar(max)" />
+    <Property Name="CampaignProducts" Type="varchar(max)" />
+    <Property Name="SuccessMetric" Type="varchar(max)" />
+    <Property Name="AccountSize" Type="varchar(max)" />
+    <Property Name="ContactPriority" Type="varchar(max)" />
+    <Property Name="Notes" Type="varchar(max)" />
+    <Property Name="CampaignProjectManager" Type="varchar(max)" />
+    <Property Name="Email" Type="varchar(max)" />
+    <Property Name="Email_Deliveries" Type="int" />
+    <Property Name="Website_Sessions" Type="int" />
+    <Property Name="Transactions" Type="int" />
+    <Property Name="Email_Recipients" Type="int" />
+    <Property Name="Open_Rate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Click_Rate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Bounce_Rate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Conversion_Rate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="LandingPage" Type="char" MaxLength="10" />
+    <Property Name="LandingUrl" Type="varchar(max)" />
+    <Property Name="USGraphWeeks" Type="varchar(max)" />
+    <Property Name="USGraphWeekRevenue" Type="varchar(max)" />
+    <Property Name="USGraphWeekUnits" Type="varchar(max)" />
+    <Property Name="CAGraphWeekUnits" Type="varchar(max)" />
+    <Property Name="CAGraphWeekRevenue" Type="varchar(max)" />
+    <Property Name="CAGraphWeeks" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="CampaignLead">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="255" />
+    <Property Name="Phone" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="CampaignMarket">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Market" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CampaignMonth">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CampaignID" Type="int" Nullable="false" />
+    <Property Name="Month" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CampaignOwner">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TradeID" Type="int" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Role" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="255" />
+    <Property Name="Phone" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="CampaignPlan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PlanName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CampaignTrade">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CampaignID" Type="int" Nullable="false" />
+    <Property Name="TradeID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CampaignType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmailSystem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Trade">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Color" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Marketing.dbo.vCampaignTradeMonths' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vCampaignTradeMonths">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="CampaignTypeID" />
+      <PropertyRef Name="Month" />
+      <PropertyRef Name="TradeID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="CampaignTypeID" Type="int" Nullable="false" />
+    <Property Name="Month" Type="int" Nullable="false" />
+    <Property Name="TradeID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Marketing.dbo.vCampaignTypeMonths' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vCampaignTypeMonths">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="CampaignID" />
+      <PropertyRef Name="CampaignTypeID" />
+      <PropertyRef Name="Month" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="CampaignID" Type="int" Nullable="false" />
+    <Property Name="CampaignTypeID" Type="int" Nullable="false" />
+    <Property Name="Month" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Campaign__Campai__04E4BC85">
+    <End Role="CampaignPlan" Type="Self.CampaignPlan" Multiplicity="0..1" />
+    <End Role="Campaign" Type="Self.Campaign" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CampaignPlan">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Campaign">
+        <PropertyRef Name="CampaignPlanID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Campaign__Campai__412EB0B6">
+    <End Role="CampaignType" Type="Self.CampaignType" Multiplicity="1" />
+    <End Role="Campaign" Type="Self.Campaign" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CampaignType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Campaign">
+        <PropertyRef Name="CampaignTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Campaign__Campai__4222D4EF">
+    <End Role="CampaignLead" Type="Self.CampaignLead" Multiplicity="1" />
+    <End Role="Campaign" Type="Self.Campaign" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CampaignLead">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Campaign">
+        <PropertyRef Name="CampaignLeadID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Campaign__EmailS__4316F928">
+    <End Role="EmailSystem" Type="Self.EmailSystem" Multiplicity="1" />
+    <End Role="Campaign" Type="Self.Campaign" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmailSystem">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Campaign">
+        <PropertyRef Name="EmailSystemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Campaign__Status__440B1D61">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="Campaign" Type="Self.Campaign" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Campaign">
+        <PropertyRef Name="StatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CampaignM__Campa__5FB337D6">
+    <End Role="Campaign" Type="Self.Campaign" Multiplicity="1" />
+    <End Role="CampaignMonth" Type="Self.CampaignMonth" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Campaign">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CampaignMonth">
+        <PropertyRef Name="CampaignID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CampaignO__Trade__59FA5E80">
+    <End Role="Trade" Type="Self.Trade" Multiplicity="0..1" />
+    <End Role="CampaignOwner" Type="Self.CampaignOwner" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trade">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CampaignOwner">
+        <PropertyRef Name="TradeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CampaignT__Campa__4D94879B">
+    <End Role="Campaign" Type="Self.Campaign" Multiplicity="1" />
+    <End Role="CampaignTrade" Type="Self.CampaignTrade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Campaign">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CampaignTrade">
+        <PropertyRef Name="CampaignID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CampaignT__Trade__4E88ABD4">
+    <End Role="Trade" Type="Self.Trade" Multiplicity="1" />
+    <End Role="CampaignTrade" Type="Self.CampaignTrade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trade">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CampaignTrade">
+        <PropertyRef Name="TradeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MarketingModelStoreContainer">
+    <EntitySet Name="AccountSize" EntityType="Self.AccountSize" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Campaign" EntityType="Self.Campaign" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CampaignLead" EntityType="Self.CampaignLead" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CampaignMarket" EntityType="Self.CampaignMarket" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CampaignMonth" EntityType="Self.CampaignMonth" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CampaignOwner" EntityType="Self.CampaignOwner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CampaignPlan" EntityType="Self.CampaignPlan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CampaignTrade" EntityType="Self.CampaignTrade" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CampaignType" EntityType="Self.CampaignType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmailSystem" EntityType="Self.EmailSystem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Trade" EntityType="Self.Trade" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vCampaignTradeMonths" EntityType="Self.vCampaignTradeMonths" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vCampaignTradeMonths].[ID] AS [ID], 
+    [vCampaignTradeMonths].[CampaignTypeID] AS [CampaignTypeID], 
+    [vCampaignTradeMonths].[Month] AS [Month], 
+    [vCampaignTradeMonths].[TradeID] AS [TradeID]
+    FROM [dbo].[vCampaignTradeMonths] AS [vCampaignTradeMonths]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vCampaignTypeMonths" EntityType="Self.vCampaignTypeMonths" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vCampaignTypeMonths].[ID] AS [ID], 
+    [vCampaignTypeMonths].[CampaignID] AS [CampaignID], 
+    [vCampaignTypeMonths].[CampaignTypeID] AS [CampaignTypeID], 
+    [vCampaignTypeMonths].[Month] AS [Month]
+    FROM [dbo].[vCampaignTypeMonths] AS [vCampaignTypeMonths]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Campaign__Campai__04E4BC85" Association="Self.FK__Campaign__Campai__04E4BC85">
+      <End Role="CampaignPlan" EntitySet="CampaignPlan" />
+      <End Role="Campaign" EntitySet="Campaign" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Campaign__Campai__412EB0B6" Association="Self.FK__Campaign__Campai__412EB0B6">
+      <End Role="CampaignType" EntitySet="CampaignType" />
+      <End Role="Campaign" EntitySet="Campaign" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Campaign__Campai__4222D4EF" Association="Self.FK__Campaign__Campai__4222D4EF">
+      <End Role="CampaignLead" EntitySet="CampaignLead" />
+      <End Role="Campaign" EntitySet="Campaign" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Campaign__EmailS__4316F928" Association="Self.FK__Campaign__EmailS__4316F928">
+      <End Role="EmailSystem" EntitySet="EmailSystem" />
+      <End Role="Campaign" EntitySet="Campaign" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Campaign__Status__440B1D61" Association="Self.FK__Campaign__Status__440B1D61">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Campaign" EntitySet="Campaign" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CampaignM__Campa__5FB337D6" Association="Self.FK__CampaignM__Campa__5FB337D6">
+      <End Role="Campaign" EntitySet="Campaign" />
+      <End Role="CampaignMonth" EntitySet="CampaignMonth" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CampaignO__Trade__59FA5E80" Association="Self.FK__CampaignO__Trade__59FA5E80">
+      <End Role="Trade" EntitySet="Trade" />
+      <End Role="CampaignOwner" EntitySet="CampaignOwner" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CampaignT__Campa__4D94879B" Association="Self.FK__CampaignT__Campa__4D94879B">
+      <End Role="Campaign" EntitySet="Campaign" />
+      <End Role="CampaignTrade" EntitySet="CampaignTrade" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CampaignT__Trade__4E88ABD4" Association="Self.FK__CampaignT__Trade__4E88ABD4">
+      <End Role="Trade" EntitySet="Trade" />
+      <End Role="CampaignTrade" EntitySet="CampaignTrade" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

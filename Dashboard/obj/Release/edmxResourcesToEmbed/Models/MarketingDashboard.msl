@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MarketingModelStoreContainer" CdmEntityContainer="MarketingEntities">
+    <EntitySetMapping Name="CampaignLeads">
+      <EntityTypeMapping TypeName="MarketingModel.CampaignLead">
+        <MappingFragment StoreEntitySet="CampaignLead">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CampaignMonths">
+      <EntityTypeMapping TypeName="MarketingModel.CampaignMonth">
+        <MappingFragment StoreEntitySet="CampaignMonth">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CampaignID" ColumnName="CampaignID" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CampaignOwners">
+      <EntityTypeMapping TypeName="MarketingModel.CampaignOwner">
+        <MappingFragment StoreEntitySet="CampaignOwner">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TradeID" ColumnName="TradeID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CampaignTrades">
+      <EntityTypeMapping TypeName="MarketingModel.CampaignTrade">
+        <MappingFragment StoreEntitySet="CampaignTrade">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CampaignID" ColumnName="CampaignID" />
+          <ScalarProperty Name="TradeID" ColumnName="TradeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CampaignTypes">
+      <EntityTypeMapping TypeName="MarketingModel.CampaignType">
+        <MappingFragment StoreEntitySet="CampaignType">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="MarketingModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailSystems">
+      <EntityTypeMapping TypeName="MarketingModel.EmailSystem">
+        <MappingFragment StoreEntitySet="EmailSystem">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="MarketingModel.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trades">
+      <EntityTypeMapping TypeName="MarketingModel.Trade">
+        <MappingFragment StoreEntitySet="Trade">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CampaignPlans">
+      <EntityTypeMapping TypeName="MarketingModel.CampaignPlan">
+        <MappingFragment StoreEntitySet="CampaignPlan">
+          <ScalarProperty Name="PlanName" ColumnName="PlanName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CampaignMarkets">
+      <EntityTypeMapping TypeName="MarketingModel.CampaignMarket">
+        <MappingFragment StoreEntitySet="CampaignMarket">
+          <ScalarProperty Name="Market" ColumnName="Market" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccountSizes">
+      <EntityTypeMapping TypeName="MarketingModel.AccountSize">
+        <MappingFragment StoreEntitySet="AccountSize">
+          <ScalarProperty Name="AccSize" ColumnName="AccSize" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Campaigns">
+      <EntityTypeMapping TypeName="MarketingModel.Campaign">
+        <MappingFragment StoreEntitySet="Campaign">
+          <ScalarProperty Name="TemplateType" ColumnName="TemplateType" />
+          <ScalarProperty Name="Email_Status" ColumnName="Email_Status" />
+          <ScalarProperty Name="CAGraphWeeks" ColumnName="CAGraphWeeks" />
+          <ScalarProperty Name="CAGraphWeekRevenue" ColumnName="CAGraphWeekRevenue" />
+          <ScalarProperty Name="CAGraphWeekUnits" ColumnName="CAGraphWeekUnits" />
+          <ScalarProperty Name="USGraphWeekUnits" ColumnName="USGraphWeekUnits" />
+          <ScalarProperty Name="USGraphWeekRevenue" ColumnName="USGraphWeekRevenue" />
+          <ScalarProperty Name="USGraphWeeks" ColumnName="USGraphWeeks" />
+          <ScalarProperty Name="LandingUrl" ColumnName="LandingUrl" />
+          <ScalarProperty Name="LandingPage" ColumnName="LandingPage" />
+          <ScalarProperty Name="Conversion_Rate" ColumnName="Conversion_Rate" />
+          <ScalarProperty Name="Bounce_Rate" ColumnName="Bounce_Rate" />
+          <ScalarProperty Name="Click_Rate" ColumnName="Click_Rate" />
+          <ScalarProperty Name="Open_Rate" ColumnName="Open_Rate" />
+          <ScalarProperty Name="Email_Recipients" ColumnName="Email_Recipients" />
+          <ScalarProperty Name="Transactions" ColumnName="Transactions" />
+          <ScalarProperty Name="Website_Sessions" ColumnName="Website_Sessions" />
+          <ScalarProperty Name="Email_Deliveries" ColumnName="Email_Deliveries" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CampaignProjectManager" ColumnName="CampaignProjectManager" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="ContactPriority" ColumnName="ContactPriority" />
+          <ScalarProperty Name="AccountSize" ColumnName="AccountSize" />
+          <ScalarProperty Name="SuccessMetric" ColumnName="SuccessMetric" />
+          <ScalarProperty Name="CampaignProducts" ColumnName="CampaignProducts" />
+          <ScalarProperty Name="CampaignMarket" ColumnName="CampaignMarket" />
+          <ScalarProperty Name="DateSubmitted" ColumnName="DateSubmitted" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="CampaignPlanID" ColumnName="CampaignPlanID" />
+          <ScalarProperty Name="EmailSystemID" ColumnName="EmailSystemID" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="CampaignLeadID" ColumnName="CampaignLeadID" />
+          <ScalarProperty Name="CampaignTypeID" ColumnName="CampaignTypeID" />
+          <ScalarProperty Name="Objective" ColumnName="Objective" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vCampaignTypeMonths">
+      <EntityTypeMapping TypeName="MarketingModel.vCampaignTypeMonth">
+        <MappingFragment StoreEntitySet="vCampaignTypeMonths">
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="CampaignTypeID" ColumnName="CampaignTypeID" />
+          <ScalarProperty Name="CampaignID" ColumnName="CampaignID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vCampaignTradeMonths">
+      <EntityTypeMapping TypeName="MarketingModel.vCampaignTradeMonth">
+        <MappingFragment StoreEntitySet="vCampaignTradeMonths">
+          <ScalarProperty Name="TradeID" ColumnName="TradeID" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="CampaignTypeID" ColumnName="CampaignTypeID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailStatus">
+      <EntityTypeMapping TypeName="MarketingModel.EmailStatu">
+        <MappingFragment StoreEntitySet="EmailStatus">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TemplateAs">
+      <EntityTypeMapping TypeName="MarketingModel.TemplateA">
+        <MappingFragment StoreEntitySet="TemplateA">
+          <ScalarProperty Name="Column3CTALink" ColumnName="Column3CTALink" />
+          <ScalarProperty Name="Column3CTAText" ColumnName="Column3CTAText" />
+          <ScalarProperty Name="Column3Message" ColumnName="Column3Message" />
+          <ScalarProperty Name="Column3Title" ColumnName="Column3Title" />
+          <ScalarProperty Name="Column3Image" ColumnName="Column3Image" />
+          <ScalarProperty Name="Column2CTALink" ColumnName="Column2CTALink" />
+          <ScalarProperty Name="Column2CTAText" ColumnName="Column2CTAText" />
+          <ScalarProperty Name="Column2Message" ColumnName="Column2Message" />
+          <ScalarProperty Name="Column2Title" ColumnName="Column2Title" />
+          <ScalarProperty Name="Column2Image" ColumnName="Column2Image" />
+          <ScalarProperty Name="Column1CTALink" ColumnName="Column1CTALink" />
+          <ScalarProperty Name="Column1CTAText" ColumnName="Column1CTAText" />
+          <ScalarProperty Name="Column1Message" ColumnName="Column1Message" />
+          <ScalarProperty Name="Column1Title" ColumnName="Column1Title" />
+          <ScalarProperty Name="Column1Image" ColumnName="Column1Image" />
+          <ScalarProperty Name="SecondaryCaption" ColumnName="SecondaryCaption" />
+          <ScalarProperty Name="CTALink" ColumnName="CTALink" />
+          <ScalarProperty Name="CTAText" ColumnName="CTAText" />
+          <ScalarProperty Name="IntroductionMessage" ColumnName="IntroductionMessage" />
+          <ScalarProperty Name="KeyBannerImage" ColumnName="KeyBannerImage" />
+          <ScalarProperty Name="SubHeadLine" ColumnName="SubHeadLine" />
+          <ScalarProperty Name="HeadLine" ColumnName="HeadLine" />
+          <ScalarProperty Name="CampaignID" ColumnName="CampaignID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TemplateCs">
+      <EntityTypeMapping TypeName="MarketingModel.TemplateC">
+        <MappingFragment StoreEntitySet="TemplateC">
+          <ScalarProperty Name="Column2CTALink" ColumnName="Column2CTALink" />
+          <ScalarProperty Name="Column2CTAText" ColumnName="Column2CTAText" />
+          <ScalarProperty Name="Column2Message" ColumnName="Column2Message" />
+          <ScalarProperty Name="Column2Title" ColumnName="Column2Title" />
+          <ScalarProperty Name="Column2Image" ColumnName="Column2Image" />
+          <ScalarProperty Name="Column1CTALink" ColumnName="Column1CTALink" />
+          <ScalarProperty Name="Column1CTAText" ColumnName="Column1CTAText" />
+          <ScalarProperty Name="Column1Message" ColumnName="Column1Message" />
+          <ScalarProperty Name="Column1Title" ColumnName="Column1Title" />
+          <ScalarProperty Name="Column1Image" ColumnName="Column1Image" />
+          <ScalarProperty Name="SecondaryCaption" ColumnName="SecondaryCaption" />
+          <ScalarProperty Name="CTALink" ColumnName="CTALink" />
+          <ScalarProperty Name="CTAText" ColumnName="CTAText" />
+          <ScalarProperty Name="IntroductionMessage" ColumnName="IntroductionMessage" />
+          <ScalarProperty Name="KeyBannerImage" ColumnName="KeyBannerImage" />
+          <ScalarProperty Name="SubHeadLine" ColumnName="SubHeadLine" />
+          <ScalarProperty Name="HeadLine" ColumnName="HeadLine" />
+          <ScalarProperty Name="CampaignID" ColumnName="CampaignID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TemplateBs">
+      <EntityTypeMapping TypeName="MarketingModel.TemplateB">
+        <MappingFragment StoreEntitySet="TemplateB">
+          <ScalarProperty Name="Column1CTALink" ColumnName="Column1CTALink" />
+          <ScalarProperty Name="Column1CTAText" ColumnName="Column1CTAText" />
+          <ScalarProperty Name="Column1Message" ColumnName="Column1Message" />
+          <ScalarProperty Name="Column1Title" ColumnName="Column1Title" />
+          <ScalarProperty Name="Column1Image" ColumnName="Column1Image" />
+          <ScalarProperty Name="SecondaryCaption" ColumnName="SecondaryCaption" />
+          <ScalarProperty Name="CTALink" ColumnName="CTALink" />
+          <ScalarProperty Name="CTAText" ColumnName="CTAText" />
+          <ScalarProperty Name="IntroductionMessage" ColumnName="IntroductionMessage" />
+          <ScalarProperty Name="KeyBannerImage" ColumnName="KeyBannerImage" />
+          <ScalarProperty Name="SubHeadLine" ColumnName="SubHeadLine" />
+          <ScalarProperty Name="HeadLine" ColumnName="HeadLine" />
+          <ScalarProperty Name="CampaignID" ColumnName="CampaignID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
