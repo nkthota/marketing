@@ -165,6 +165,39 @@ namespace Dashboard.Controllers
                                 Color = y.Color
                             };
             ViewBag.Owners = tradeData.ToList();
+
+            List<CampaignTemplates> campaignTemplates = new List<CampaignTemplates>();
+
+            var templateAs = db.TemplateAs.Where(p => p.CampaignID == id).ToList();
+            foreach(var tempA in templateAs)
+            {
+                campaignTemplates.Add(new CampaignTemplates {
+                    TemplateType = "Template A",
+                    TemplateUrl = $"/TemplateAs/Edit/{tempA.ID}"
+                });
+            }
+
+            var templateBs = db.TemplateBs.Where(p => p.CampaignID == id).ToList();
+            foreach (var tempB in templateBs)
+            {
+                campaignTemplates.Add(new CampaignTemplates
+                {
+                    TemplateType = "Template B",
+                    TemplateUrl = $"/TemplateBs/Edit/{tempB.ID}"
+                });
+            }
+
+            var templateCs = db.TemplateCs.Where(p => p.CampaignID == id).ToList();
+            foreach (var tempC in templateCs)
+            {
+                campaignTemplates.Add(new CampaignTemplates
+                {
+                    TemplateType = "Template C",
+                    TemplateUrl = $"/TemplateCs/Edit/{tempC.ID}"
+                });
+            }
+            ViewBag.CurrentTemplates = campaignTemplates;
+
             //if (User.IsInRole("Marketing_Admin"))
             //    return View("Edit", campaign);
             //return View("ViewCampaign", campaign);
@@ -476,6 +509,17 @@ namespace Dashboard.Controllers
             });
             db.SaveChanges();
             return record.ID;
+        }
+    }
+
+    public class CampaignTemplates
+    {
+        public string TemplateType { get; set; }
+        public string TemplateUrl { get; set; }
+
+        public static implicit operator List<object>(CampaignTemplates v)
+        {
+            throw new NotImplementedException();
         }
     }
 }
