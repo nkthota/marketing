@@ -56,10 +56,10 @@
                                     <div class="col-lg-4"><label class="pad10">Trades Included</label></div>
                                     <div class="col-lg-6">
                                         @{
-                                            foreach (var recordDetailse in ownerDetails.Where(p => p.CampaignId == @Model.ID))
-                                            {
-                                                <span class="badge" style="background-color: @recordDetailse.Color;">@recordDetailse.TradeName</span>
-                                            }
+                        foreach (var recordDetailse in ownerDetails.Where(p => p.CampaignId == @Model.ID))
+                        {
+                            <span class="badge" style="background-color: @recordDetailse.Color;">@recordDetailse.TradeName</span>
+    }
                                         }
                                     </div>
                                 </div>
@@ -241,23 +241,41 @@
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                @*<div class="hpanel">
-                                        <div class="panel-body">
-                                            <div class="lightBoxGallery">
-                                                <a href="~/Images/Templates/TemplateA.png" title="Template A" data-gallery=""><img src="~/Images/Templates/TemplateA_Small.png"></a>
-                                            </div>
-                                        </div>
-                                    </div>*@
                             </div>
                         </div>
-                        <div id="blueimp-gallery" class="blueimp-gallery" style="display: none;">
-                            <div class="slides" style="width: 30720px;"></div>
-                            <h3 class="title">Email Standard Templates</h3>
-                            <a class="prev">‹</a>
-                            <a class="next">›</a>
-                            <a class="close">×</a>
-                            <a class="play-pause"></a>
-                            <ol class="indicator"></ol>
+
+                        <div class="row padfull20">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-2"><label class="pad10">Job Functions</label></div>
+                                    <div class="col-lg-10">
+                                        <select id="campjobfunctions" multiple="multiple">
+                                            <option value="60 : CEO/Executive">60 : CEO/Executive</option>
+                                            <option value="61 : Mgr. director/Owner">61 : Mgr. director/Owner</option>
+                                            <option value="62 : Purchasing Manager">62 : Purchasing Manager</option>
+                                            <option value="63 : Purchasing Employee">63 : Purchasing Employee</option>
+                                            <option value="64 : Technical Director">64 : Technical Director</option>
+                                            <option value="65 : Project Manager">65 : Project Manager</option>
+                                            <option value="66 : Jobsite Mng/Superint">66 : Jobsite Mng/Superint</option>
+                                            <option value="67 : Foreman">67 : Foreman</option>
+                                            <option value="68 : Master Craftsman">68 : Master Craftsman</option>
+                                            <option value="69 : Facility/Maintenance">69 : Facility/Maintenance</option>
+                                            <option value="70 : Mechanic/Tradesman">70 : Mechanic/Tradesman</option>
+                                            <option value="71 : Storeman/Tool Crib">71 : Storeman/Tool Crib</option>
+                                            <option value="72 : Finance Manager">72 : Finance Manager</option>
+                                            <option value="73 : Accounts pay. empl.">73 : Accounts pay. empl.</option>
+                                            <option value="74 : Sales Manager">74 : Sales Manager</option>
+                                            <option value="75 : Architect">75 : Architect</option>
+                                            <option value="76 : Engineer/Specifier">76 : Engineer/Specifier</option>
+                                            <option value="77 : Secretary/Reception">77 : Secretary/Reception</option>
+                                            <option value="78 : Clerk/Employee">78 : Clerk/Employee</option>
+                                            <option value="79 : HS&E Manager">79 : HS&E Manager</option>
+                                            <option value="80 : BIM/CAD Manager">80 : BIM/CAD Manager</option>
+                                        </select>
+                                        @Html.HiddenFor(model => model.JobFunctions, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         @*end here*@
@@ -466,6 +484,8 @@
             $("#EmailStatusOptions").select2();
 
             $("#LandingContact").select2();
+            $("#campjobfunctions").select2({ width: '100%' });
+            
             $("#TemplateTypes").select2();
 
             $('#CampaignProducts').summernote();
@@ -492,8 +512,12 @@
             $('#TemplateTypes').val($("#TemplateType").val());
             $('#TemplateTypes').trigger('change');
 
+            $('#campjobfunctions').val($("#JobFunctions").val().split(','));
+            $('#campjobfunctions').trigger('change');
+
             $('#CampaignProducts').summernote('code', $('#CampaignProducts').val());
             $('#Notes').summernote('code', $('#Notes').val());
+
             $('#SuccessMetric').summernote('code', $('#SuccessMetric').val());
             $('#Email').summernote('code', $('#Email').val());
 
@@ -548,6 +572,16 @@
             });
             $("#LandingUrl").val(theID.join(","));
         });
+
+        $("#campjobfunctions").change(function () {
+            var theID = [];
+            var theSelection = [];
+            $.each($("#campjobfunctions").select2('data'), function (key, item) {
+                theID.push(item.id);
+                theSelection.push(item.text);
+            });
+            $("#JobFunctions").val(theID.join(","));
+        });             
 
         $("#TemplateTypes").change(function () {
             var theID = [];

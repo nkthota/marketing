@@ -48,6 +48,7 @@
     <Property Name="CAGraphWeeks" Type="varchar(max)" />
     <Property Name="Email_Status" Type="varchar" MaxLength="32" />
     <Property Name="TemplateType" Type="varchar" MaxLength="100" />
+    <Property Name="JobFunctions" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="CampaignLead">
     <Key>

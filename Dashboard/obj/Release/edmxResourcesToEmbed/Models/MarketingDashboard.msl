@@ -112,6 +112,7 @@
     <EntitySetMapping Name="Campaigns">
       <EntityTypeMapping TypeName="MarketingModel.Campaign">
         <MappingFragment StoreEntitySet="Campaign">
+          <ScalarProperty Name="JobFunctions" ColumnName="JobFunctions" />
           <ScalarProperty Name="TemplateType" ColumnName="TemplateType" />
           <ScalarProperty Name="Email_Status" ColumnName="Email_Status" />
           <ScalarProperty Name="CAGraphWeeks" ColumnName="CAGraphWeeks" />

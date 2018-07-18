@@ -68,7 +68,8 @@ namespace Dashboard.Models
         public string CAGraphWeeks { get; set; }
         public string Email_Status { get; set; }
         public string TemplateType { get; set; }
-    
+        public string JobFunctions { get; set; }
+
         public virtual CampaignType CampaignType { get; set; }
         public virtual CampaignLead CampaignLead { get; set; }
         public virtual CampaignPlan CampaignPlan { get; set; }

@@ -251,6 +251,7 @@
     <Property Name="TemplateType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="TemplateCs" Relationship="MarketingModel.FK__TemplateC__Campa__44CA3770" FromRole="Campaign" ToRole="TemplateC" />
     <NavigationProperty Name="TemplateBs" Relationship="MarketingModel.FK__TemplateB__Campa__47A6A41B" FromRole="Campaign" ToRole="TemplateB" />
+    <Property Name="JobFunctions" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK__Campaign__Campai__412EB0B6">
     <End Type="MarketingModel.CampaignType" Role="CampaignType" Multiplicity="1" />

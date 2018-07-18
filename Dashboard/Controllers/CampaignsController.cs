@@ -178,7 +178,7 @@ namespace Dashboard.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Marketing_Admin")]
-        public ActionResult Edit([Bind(Include = "ID,Name,Objective,CampaignTypeID,CampaignLeadID,StatusID,EmailSystemID,CampaignPlanID,StartDate,EndDate,DateSubmitted,CampaignMarket,CampaignProducts,SuccessMetric,AccountSize,ContactPriority,Notes,CampaignProjectManager,Email,Email_Deliveries,Website_Sessions,Transactions,Email_Recipients,Open_Rate,Click_Rate,Bounce_Rate,Conversion_Rate,LandingPage,LandingUrl,USGraphWeeks,USGraphWeekRevenue,USGraphWeekUnits,CAGraphWeeks,CAGraphWeekRevenue,CAGraphWeekUnits,Email_Status,TemplateType")] Campaign campaign)
+        public ActionResult Edit([Bind(Include = "ID,Name,Objective,CampaignTypeID,CampaignLeadID,StatusID,EmailSystemID,CampaignPlanID,StartDate,EndDate,DateSubmitted,CampaignMarket,CampaignProducts,SuccessMetric,AccountSize,ContactPriority,Notes,CampaignProjectManager,Email,Email_Deliveries,Website_Sessions,Transactions,Email_Recipients,Open_Rate,Click_Rate,Bounce_Rate,Conversion_Rate,LandingPage,LandingUrl,USGraphWeeks,USGraphWeekRevenue,USGraphWeekUnits,CAGraphWeeks,CAGraphWeekRevenue,CAGraphWeekUnits,Email_Status,TemplateType,JobFunctions")] Campaign campaign)
         {
             if (ModelState.IsValid)
             {
@@ -462,7 +462,7 @@ namespace Dashboard.Controllers
             int templateId = 0;
             if (db.TemplateCs.Where(p => p.CampaignID == id).Count() != 0)
             {
-                templateId = db.TemplateAs.Where(p => p.CampaignID == id).FirstOrDefault().ID;
+                templateId = db.TemplateCs.Where(p => p.CampaignID == id).FirstOrDefault().ID;
             }
             return templateId;
         }

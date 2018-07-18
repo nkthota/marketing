@@ -282,7 +282,13 @@
                                                     <div class="row">
                                                         <div class="col-lg-12" style="text-align: right;">
                                                             <p style="text-align: center; color: #666666;">
-                                                                @Model.FirstOrDefault(p => p.ID == cmonth.Jan).Status.Name
+                                                                @{
+                                                                    if (@Model.FirstOrDefault(p => p.ID == cmonth.Jan).Status.Name == "Delivered")
+                                                                    {
+                                                                        <i class="fa fa-paper-plane" style="color:forestgreen;"></i>
+                                                                    }
+                                                                    @Model.FirstOrDefault(p => p.ID == cmonth.Jan).Status.Name
+                                                                }
                                                             </p>
                                                         </div>
                                                     </div>
@@ -336,7 +342,13 @@
                                                         <div class="row">
                                                             <div class="col-lg-12" style="text-align: right;">
                                                                 <p style="text-align: center; color: #666666;">
-                                                                    @Model.FirstOrDefault(p => p.ID == cmonth.Feb).Status.Name
+                                                                    @{
+                                                                        if (@Model.FirstOrDefault(p => p.ID == cmonth.Feb).Status.Name == "Delivered")
+                                                                        {
+                                                                            <i class="fa fa-paper-plane" style="color:forestgreen;"></i>
+                                                                        }
+                                                                        @Model.FirstOrDefault(p => p.ID == cmonth.Feb).Status.Name
+                                                                    }
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -392,7 +404,13 @@
                                                     <div class="row">
                                                         <div class="col-lg-12" style="text-align: right;">
                                                             <p style="text-align: center; color: #666666;">
-                                                                @Model.FirstOrDefault(p => p.ID == cmonth.Mar).Status.Name
+                                                                @{
+        if (@Model.FirstOrDefault(p => p.ID == cmonth.Mar).Status.Name == "Delivered")
+        {
+                                                            <i class="fa fa-paper-plane" style="color:forestgreen;"></i>
+}
+                                                            @Model.FirstOrDefault(p => p.ID == cmonth.Mar).Status.Name
+                                                                }
                                                             </p>
                                                         </div>
                                                     </div>
@@ -447,7 +465,13 @@
                                                     <div class="row">
                                                         <div class="col-lg-12" style="text-align: right;">
                                                             <p style="text-align: center; color: #666666;">
-                                                                @Model.FirstOrDefault(p => p.ID == cmonth.Apr).Status.Name
+                                                                @{
+        if (@Model.FirstOrDefault(p => p.ID == cmonth.Apr).Status.Name == "Delivered")
+        {
+                                                            <i class="fa fa-paper-plane" style="color:forestgreen;"></i>
+}
+                                                            @Model.FirstOrDefault(p => p.ID == cmonth.Apr).Status.Name
+                                                                }
                                                             </p>
                                                         </div>
                                                     </div>
@@ -502,7 +526,13 @@
                                                     <div class="row">
                                                         <div class="col-lg-12" style="text-align: right;">
                                                             <p style="text-align: center; color: #666666;">
-                                                                @Model.FirstOrDefault(p => p.ID == cmonth.May).Status.Name
+                                                                @{
+        if (@Model.FirstOrDefault(p => p.ID == cmonth.May).Status.Name == "Delivered")
+        {
+                                                            <i class="fa fa-paper-plane" style="color:forestgreen;"></i>
+}
+                                                            @Model.FirstOrDefault(p => p.ID == cmonth.May).Status.Name
+                                                                }
                                                             </p>
                                                         </div>
                                                     </div>
@@ -557,7 +587,13 @@
                                                     <div class="row">
                                                         <div class="col-lg-12" style="text-align: right;">
                                                             <p style="text-align: center; color: #666666;">
-                                                                @Model.FirstOrDefault(p => p.ID == cmonth.Jun).Status.Name
+                                                                @{
+        if (@Model.FirstOrDefault(p => p.ID == cmonth.Jun).Status.Name == "Delivered")
+        {
+                                                            <i class="fa fa-paper-plane" style="color:forestgreen;"></i>
+}
+                                                            @Model.FirstOrDefault(p => p.ID == cmonth.Jun).Status.Name
+                                                                }
                                                             </p>
                                                         </div>
                                                     </div>
@@ -612,7 +648,13 @@
                                                     <div class="row">
                                                         <div class="col-lg-12" style="text-align: right;">
                                                             <p style="text-align: center; color: #666666;">
-                                                                @Model.FirstOrDefault(p => p.ID == cmonth.Jul).Status.Name
+                                                                @{
+        if (@Model.FirstOrDefault(p => p.ID == cmonth.Jul).Status.Name == "Delivered")
+        {
+                                                            <i class="fa fa-paper-plane" style="color:forestgreen;"></i>
+}
+                                                            @Model.FirstOrDefault(p => p.ID == cmonth.Jul).Status.Name
+                                                                }
                                                             </p>
                                                         </div>
                                                     </div>
@@ -667,7 +709,13 @@
                                                     <div class="row">
                                                         <div class="col-lg-12" style="text-align: right;">
                                                             <p style="text-align: center; color: #666666;">
-                                                                @Model.FirstOrDefault(p => p.ID == cmonth.Aug).Status.Name
+                                                                @{
+        if (@Model.FirstOrDefault(p => p.ID == cmonth.Aug).Status.Name == "Delivered")
+        {
+                                                            <i class="fa fa-paper-plane" style="color:forestgreen;"></i>
+}
+                                                            @Model.FirstOrDefault(p => p.ID == cmonth.Aug).Status.Name
+                                                                }
                                                             </p>
                                                         </div>
                                                     </div>
@@ -722,7 +770,13 @@
                                                     <div class="row">
                                                         <div class="col-lg-12" style="text-align: right;">
                                                             <p style="text-align: center; color: #666666;">
-                                                                @Model.FirstOrDefault(p => p.ID == cmonth.Sep).Status.Name
+                                                                @{
+        if (@Model.FirstOrDefault(p => p.ID == cmonth.Sep).Status.Name == "Delivered")
+        {
+                                                            <i class="fa fa-paper-plane" style="color:forestgreen;"></i>
+}
+                                                            @Model.FirstOrDefault(p => p.ID == cmonth.Sep).Status.Name
+                                                                }
                                                             </p>
                                                         </div>
                                                     </div>
@@ -778,7 +832,13 @@
                                                     <div class="row">
                                                         <div class="col-lg-12" style="text-align: right;">
                                                             <p style="text-align: center; color: #666666;">
-                                                                @Model.FirstOrDefault(p => p.ID == cmonth.Oct).Status.Name
+                                                                @{
+        if (@Model.FirstOrDefault(p => p.ID == cmonth.Oct).Status.Name == "Delivered")
+        {
+                                                            <i class="fa fa-paper-plane" style="color:forestgreen;"></i>
+}
+                                                            @Model.FirstOrDefault(p => p.ID == cmonth.Oct).Status.Name
+                                                                }
                                                             </p>
                                                         </div>
                                                     </div>
@@ -833,7 +893,13 @@
                                                     <div class="row">
                                                         <div class="col-lg-12" style="text-align: right;">
                                                             <p style="text-align: center; color: #666666;">
-                                                                @Model.FirstOrDefault(p => p.ID == cmonth.Nov).Status.Name
+                                                                @{
+        if (@Model.FirstOrDefault(p => p.ID == cmonth.Nov).Status.Name == "Delivered")
+        {
+                                                            <i class="fa fa-paper-plane" style="color:forestgreen;"></i>
+}
+                                                            @Model.FirstOrDefault(p => p.ID == cmonth.Nov).Status.Name
+                                                                }
                                                             </p>
                                                         </div>
                                                     </div>
@@ -888,7 +954,13 @@
                                                     <div class="row">
                                                         <div class="col-lg-12" style="text-align: right;">
                                                             <p style="text-align: center; color: #666666;">
-                                                                @Model.FirstOrDefault(p => p.ID == cmonth.Dec).Status.Name
+                                                                @{
+        if (@Model.FirstOrDefault(p => p.ID == cmonth.Dec).Status.Name == "Delivered")
+        {
+                                                            <i class="fa fa-paper-plane" style="color:forestgreen;"></i>
+}
+                                                            @Model.FirstOrDefault(p => p.ID == cmonth.Dec).Status.Name
+                                                                }
                                                             </p>
                                                         </div>
                                                     </div>

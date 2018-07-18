@@ -66,42 +66,103 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach (var camp in @Model.Where(p => p.Status.Name == "Initiated").ToList())
+                                    @foreach (var camp in @Model.Where(p => p.Status.Name == "Initiated").ToList())
                                 {
-                                <tr>
-                                   @{ var stDate = string.IsNullOrEmpty(@camp.StartDate.ToString()) ? "" : DateTime.Parse(@camp.StartDate.ToString()).ToShortDateString(); }
-                                   <td><a target="_blank" href="/Campaigns/Edit/@camp.ID">@camp.Name</a></td>
-                                   <td>@stDate</td>
-                                   <td>@camp.CampaignLead.FirstName</td>
-                                   <td>@camp.Status.Name</td>
-                                   @if (camp.Email_Status.ToString() == "Not Started" || camp.Email_Status.ToString() == "Delayed")
-                                   {
-                                   <td><span class="badge" style="background-color: #f44941;">@camp.Email_Status</span></td>
-                                   }
-                                   else if (camp.Email_Status.ToString() == "In Progress")
-                                   {
-                                   <td><span class="badge" style="background-color: #FFCC00;">@camp.Email_Status</span></td>
-                                   }
-                                   else if (camp.Email_Status.ToString() == "Completed")
-                                   {
-                                   <td><span class="badge" style="background-color: #73C6B6;">@camp.Email_Status</span></td>
-                                   }
-                                   else
-                                   {
-                                   <td></td>
-                                   }
-                                   <td>@camp.EmailSystem.Name</td>
-                                   <td>@camp.CampaignType.Type</td>
-                                   @if (string.IsNullOrEmpty(@camp.CampaignMarket) == false)
-                                   {
-                                   <td>@camp.CampaignMarket.Replace("1", "US").Replace("2", " CA-EN").Replace("3", " CA-FR")</td>
-                                   }
-                                   else
-                                   {
-                                   <td></td>
-                                   }
-                                </tr>
+                                    <tr>
+                                        @{ var stDate = string.IsNullOrEmpty(@camp.StartDate.ToString()) ? "" : DateTime.Parse(@camp.StartDate.ToString()).ToShortDateString(); }
+                                        <td><a target="_blank" href="/Campaigns/Edit/@camp.ID">@camp.Name</a></td>
+                                        <td>@stDate</td>
+                                        <td>@camp.CampaignLead.FirstName</td>
+                                        <td>@camp.Status.Name</td>
+                                        @if (camp.Email_Status.ToString() == "Not Started" || camp.Email_Status.ToString() == "Delayed")
+                                    {
+                                        <td><span class="badge" style="background-color: #f44941;">@camp.Email_Status</span></td>
                                 }
+                                else if (camp.Email_Status.ToString() == "In Progress")
+                                {
+                                    <td><span class="badge" style="background-color: #FFCC00;">@camp.Email_Status</span></td>
+                            }
+                            else if (camp.Email_Status.ToString() == "Completed")
+                            {
+                                <td><span class="badge" style="background-color: #73C6B6;">@camp.Email_Status</span></td>
+                        }
+                        else
+                        {
+                            <td></td>
+                    }
+                                        <td>@camp.EmailSystem.Name</td>
+                                        <td>@camp.CampaignType.Type</td>
+                                        @if (string.IsNullOrEmpty(@camp.CampaignMarket) == false)
+                                    {
+                                        <td>@camp.CampaignMarket.Replace("1", "US").Replace("2", " CA-EN").Replace("3", " CA-FR")</td>
+                                }
+                                else
+                                {
+                                    <td></td>
+                            }
+                                    </tr>
+                            }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12" style="margin-top:20px;">
+                <div class="hpanel">
+                    <div class="panel-heading" style="font-size:18px;">
+                        <div class="panel-tools">
+                            <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                        </div>
+                        DELIVERED
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table id="example3" class="display table table-bordered" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Campaign</th>
+                                        <th>End Date</th>
+                                        <th>Campaign Lead</th>
+                                        <th>Campaign Status</th>
+                                        <th>Campaign Type</th>
+                                        <th>Markets</th>
+                                        <th>Campaign Plan</th>
+                                        <th>Campaign Data</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var camp in @Model.Where(p => p.Status.Name == "Delivered").ToList())
+                                    {
+                                        <tr>
+                                            @{ var stDate = string.IsNullOrEmpty(@camp.EndDate.ToString()) ? "" : DateTime.Parse(@camp.EndDate.ToString()).ToShortDateString(); }
+                                            <td><a target="_blank" href="/Campaigns/Edit/@camp.ID">@camp.Name</a></td>
+                                            <td>@stDate</td>
+                                            <td>@camp.CampaignLead.FirstName</td>
+                                            <td>@camp.Status.Name</td>
+                                            <td>@camp.CampaignType.Type</td>
+                                            @if (string.IsNullOrEmpty(@camp.CampaignMarket) == false)
+                                            {
+                                                <td>@camp.CampaignMarket.Replace("1", "US").Replace("2", " CA-EN").Replace("3", " CA-FR")</td>
+                                            }
+                                            else
+                                            {
+                                                <td></td>
+                                            }
+                                            <td>@camp.CampaignPlan.PlanName</td>
+                                            @if (string.IsNullOrEmpty(@camp.USGraphWeekRevenue) == false)
+                                            {
+                                                <td style="text-align:center;"><i class="pe-7s-graph3" style="color:#f44941;font-size:18px;font-weight:500;"></i></td>
+                                            }
+                                            else
+                                            {
+                                                <td></td>
+                                            }
+                                        </tr>
+                                    }
                                 </tbody>
                             </table>
                         </div>
@@ -163,8 +224,20 @@
             ]
         });
 
-        // Initialize Example 2
-        $('#example2').dataTable();
+        // Initialize Example 1
+        $('#example3').dataTable({
+            dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>tp",
+            "pageLength": 25,
+            "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+            "order": [[1, "asc"]],
+            buttons: [
+                { extend: 'copy', className: 'btn-sm' },
+                { extend: 'csv', title: 'ExampleFile', className: 'btn-sm' },
+                { extend: 'pdf', title: 'ExampleFile', className: 'btn-sm' },
+                { extend: 'print', className: 'btn-sm' }
+            ]
+        });
+
 
     </script>
 }
