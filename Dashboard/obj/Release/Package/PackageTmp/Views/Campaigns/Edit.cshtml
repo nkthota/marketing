@@ -48,7 +48,7 @@
                         <div class="row padfull20">
                             <div class="col-lg-6">
                                 <div class="row">
-                                    <div class="col-lg-4"><label class="pad10">Campaign Manager</label></div>
+                                    <div class="col-lg-4"><label class="pad10">Campaign Owner</label></div>
                                     <div class="col-lg-6">@Html.EditorFor(model => model.CampaignProjectManager, new { htmlAttributes = new { @class = "form-control" } })</div>
                                 </div>
                             </div>
@@ -57,10 +57,10 @@
                                     <div class="col-lg-4"><label class="pad10">Trades Included</label></div>
                                     <div class="col-lg-6">
                                         @{
-                        foreach (var recordDetailse in ownerDetails.Where(p => p.CampaignId == @Model.ID))
-                        {
-                            <span class="badge" style="background-color: @recordDetailse.Color;">@recordDetailse.TradeName</span>
-    }
+                                            foreach (var recordDetailse in ownerDetails.Where(p => p.CampaignId == @Model.ID))
+                                            {
+                                                <span class="badge" style="background-color: @recordDetailse.Color;">@recordDetailse.TradeName</span>
+                                            }
                                         }
                                     </div>
                                 </div>
@@ -70,7 +70,7 @@
                         <div class="row padfull20">
                             <div class="col-lg-6">
                                 <div class="row">
-                                    <div class="col-lg-4"><label class="pad10">Email Status</label></div>
+                                    <div class="col-lg-4"><label class="pad10">Email Creation Status</label></div>
                                     <div class="col-lg-6">
                                         <select id="EmailStatusOptions" style="width:100px;">
                                             <option value=" "></option>
@@ -190,7 +190,7 @@
                                     <div class="col-lg-4"><label class="pad10">Landing Page</label></div>
                                     <div class="col-lg-6">
                                         <select id="LandingPageOptions" style="width:100px;">
-                                            <option value=""></option>
+                                            <option value=" "></option>
                                             <option value="Yes">Yes</option>
                                             <option value="No">No</option>
                                         </select>
@@ -230,12 +230,9 @@
                                                     <option value="TemplateC">TemplateC</option>
                                                 </select>
 
-                                                @foreach (var temp in currentTemplates.ToList())
-                                                {
-                                                    <a class="btn btn-default btn-sm" target="_blank" href="@temp.TemplateUrl">
-                                                        <i class="fa fa-edit"></i>
-                                                    </a>
-                                                }
+                                                <a class="btn btn-default btn-sm" id="showtemplate" target="_blank">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
                                                 <a class="btn btn-default btn-sm" id="createtemplate">
                                                     <i class="fa fa-plus-square"></i>
                                                 </a>
@@ -444,6 +441,7 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
     @Styles.Render("~/bundles/blueimp/css")
     @Styles.Render("~/bundles/sweetAlert/css")
+    @Styles.Render("~/bundles/bootstrapCheckbox/css")
 
 }
 
@@ -459,7 +457,6 @@
     <script type="text/javascript" src="/scripts/moment.min.js"></script>
     <script type="text/javascript" src="/scripts/bootstrap-datetimepicker.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
-
 
     <script type="text/javascript">
 
@@ -490,7 +487,7 @@
 
             $("#LandingContact").select2();
             $("#campjobfunctions").select2({ width: '100%' });
-            
+
             $("#TemplateTypes").select2();
 
             $('#CampaignProducts').summernote();
@@ -505,7 +502,9 @@
             $('#CampaignMarketMultiple').val($("#CampaignMarket").val().split(','));
             $('#CampaignMarketMultiple').trigger('change');
 
-            $('#LandingPageOptions').val($("#LandingPage").val());
+            var landingRequired = $("#LandingPage").val();
+
+            $('#LandingPageOptions').val(landingRequired.trim());
             $('#LandingPageOptions').trigger('change');
 
             $('#EmailStatusOptions').val($("#Email_Status").val());
@@ -586,7 +585,7 @@
                 theSelection.push(item.text);
             });
             $("#JobFunctions").val(theID.join(","));
-        });             
+        });
 
         $("#TemplateTypes").change(function () {
             var theID = [];
@@ -596,91 +595,150 @@
                 theSelection.push(item.text);
             });
             $("#TemplateType").val(theID.join(","));
+
+            var modelJSValue = '@Model.ID';
+            if ($("#TemplateType").val() == "TemplateA") {
+                $.getJSON("/Campaigns/GetTemplateAUrl/" + modelJSValue, function (data) {
+                    if (data != 0) {
+                        $('#showtemplate').attr("href", "/TemplateAs/Edit/" + data);
+                    }
+                });
+            }
+
+            if ($("#TemplateType").val() == "TemplateB") {
+                $.getJSON("/Campaigns/GetTemplateBUrl/" + modelJSValue, function (data) {
+                    if (data != 0) {
+                        $('#showtemplate').attr("href", "/TemplateBs/Edit/" + data);
+                    }
+                });
+            }
+
+            if ($("#TemplateType").val() == "TemplateC") {
+                $.getJSON("/Campaigns/GetTemplateCUrl/" + modelJSValue, function (data) {
+                    if (data != 0) {
+                        $('#showtemplate').attr("href", "/TemplateCs/Edit/" + data);
+                    }
+                });
+            }
         });
 
         $("#createtemplate").click(function () {
             var modelJSValue = '@Model.ID';
             if ($("#TemplateType").val() == "TemplateA") {
 
-                swal({
-                    title: "Are you sure?",
-                    text: "Your will be creating a new template for the campaign",
-                    type: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "Yes, create it!",
-                    cancelButtonText: "No, cancel it!",
-                    closeOnConfirm: false,
-                    closeOnCancel: false
-                },
-                    function (isConfirm) {
-                        if (isConfirm) {
-                            if ($("#TemplateType").val() == "TemplateA") {
-                                $.getJSON("/Campaigns/CreateTemplateA/" + modelJSValue, function (data) {
-                                    $('#showtemplate').attr("href", "/TemplateAs/Edit/" + data);
-                                });
-                            }
-                            swal("Created!", "Template is created for the campaign.", "success");
-                        } else {
-                            swal("Cancelled", "No Template is created.", "error");
-                        }
-                    });
+                $.getJSON("/Campaigns/GetTemplateAUrl/" + modelJSValue, function (data) {
+                    if (data == 0) {
+                        swal({
+                            title: "Are you sure?",
+                            text: "Your will be creating a new template for the campaign",
+                            type: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: "#DD6B55",
+                            confirmButtonText: "Yes, create it!",
+                            cancelButtonText: "No, cancel it!",
+                            closeOnConfirm: false,
+                            closeOnCancel: false
+                        },
+                            function (isConfirm) {
+                                if (isConfirm) {
+                                    if ($("#TemplateType").val() == "TemplateA") {
+                                        $.getJSON("/Campaigns/CreateTemplateA/" + modelJSValue, function (data) {
+                                            $('#showtemplate').attr("href", "/TemplateAs/Edit/" + data);
+                                        });
+                                    }
+                                    swal("Created!", "Template is created for the campaign.", "success");
+                                } else {
+                                    swal("Cancelled", "No Template is created.", "error");
+                                }
+                            });
+                    }
+                    else {
+                        swal({
+                            title: "Template Exists!",
+                            text: "Selected Template already exists for campaign!",
+                            type: "error"
+                        });
+                    }
+                });
             }
 
             if ($("#TemplateType").val() == "TemplateB") {
 
-                swal({
-                    title: "Are you sure?",
-                    text: "Your will be creating a new template for the campaign",
-                    type: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "Yes, create it!",
-                    cancelButtonText: "No, cancel it!",
-                    closeOnConfirm: false,
-                    closeOnCancel: false
-                },
-                    function (isConfirm) {
-                        if (isConfirm) {
-                            if ($("#TemplateType").val() == "TemplateB") {
-                                $.getJSON("/Campaigns/CreateTemplateB/" + modelJSValue, function (data) {
-                                    $('#showtemplate').attr("href", "/TemplateBs/Edit/" + data);
-                                });
-                            }
-                            swal("Created!", "Template is created for the campaign.", "success");
-                        } else {
-                            swal("Cancelled", "No Template is created.", "error");
-                        }
-                    });
+                $.getJSON("/Campaigns/GetTemplateBUrl/" + modelJSValue, function (data) {
+                    if (data == 0) {
+                        swal({
+                            title: "Are you sure?",
+                            text: "Your will be creating a new template for the campaign",
+                            type: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: "#DD6B55",
+                            confirmButtonText: "Yes, create it!",
+                            cancelButtonText: "No, cancel it!",
+                            closeOnConfirm: false,
+                            closeOnCancel: false
+                        },
+                            function (isConfirm) {
+                                if (isConfirm) {
+                                    if ($("#TemplateType").val() == "TemplateB") {
+                                        $.getJSON("/Campaigns/CreateTemplateB/" + modelJSValue, function (data) {
+                                            $('#showtemplate').attr("href", "/TemplateBs/Edit/" + data);
+                                        });
+                                    }
+                                    swal("Created!", "Template is created for the campaign.", "success");
+                                } else {
+                                    swal("Cancelled", "No Template is created.", "error");
+                                }
+                            });
+                    }
+                    else {
+                        swal({
+                            title: "Template Exists!",
+                            text: "Selected Template already exists for campaign!",
+                            type: "error"
+                        });
+                    }
+                });
             }
 
             if ($("#TemplateType").val() == "TemplateC") {
 
-                swal({
-                    title: "Are you sure?",
-                    text: "Your will be creating a new template for the campaign",
-                    type: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "Yes, create it!",
-                    cancelButtonText: "No, cancel it!",
-                    closeOnConfirm: false,
-                    closeOnCancel: false
-                },
-                    function (isConfirm) {
-                        if (isConfirm) {
-                            if ($("#TemplateType").val() == "TemplateC") {
-                                $.getJSON("/Campaigns/CreateTemplateC/" + modelJSValue, function (data) {
-                                    $('#showtemplate').attr("href", "/TemplateCs/Edit/" + data);
-                                });
-                            }
-                            swal("Created!", "Template is created for the campaign.", "success");
-                        } else {
-                            swal("Cancelled", "No Template is created.", "error");
-                        }
-                    });
+                $.getJSON("/Campaigns/GetTemplateCUrl/" + modelJSValue, function (data) {
+                    if (data == 0) {
+                        swal({
+                            title: "Are you sure?",
+                            text: "Your will be creating a new template for the campaign",
+                            type: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: "#DD6B55",
+                            confirmButtonText: "Yes, create it!",
+                            cancelButtonText: "No, cancel it!",
+                            closeOnConfirm: false,
+                            closeOnCancel: false
+                        },
+                            function (isConfirm) {
+                                if (isConfirm) {
+                                    if ($("#TemplateType").val() == "TemplateC") {
+                                        $.getJSON("/Campaigns/CreateTemplateC/" + modelJSValue, function (data) {
+                                            $('#showtemplate').attr("href", "/TemplateCs/Edit/" + data);
+                                        });
+                                    }
+                                    swal("Created!", "Template is created for the campaign.", "success");
+                                } else {
+                                    swal("Cancelled", "No Template is created.", "error");
+                                }
+                            });
+                    }
+                    else {
+                        swal({
+                            title: "Template Exists!",
+                            text: "Selected Template already exists for campaign!",
+                            type: "error"
+                        });
+                    }
+                });
             }
         });
 
     </script>
+
 }

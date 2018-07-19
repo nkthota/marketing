@@ -11,7 +11,8 @@ namespace Dashboard.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web.Mvc;
+
     public partial class TemplateA
     {
         public int ID { get; set; }
@@ -19,6 +20,7 @@ namespace Dashboard.Models
         public string HeadLine { get; set; }
         public string SubHeadLine { get; set; }
         public string KeyBannerImage { get; set; }
+        [AllowHtml]
         public string IntroductionMessage { get; set; }
         public string CTAText { get; set; }
         public string CTALink { get; set; }

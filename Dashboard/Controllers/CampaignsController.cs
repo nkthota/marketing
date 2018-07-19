@@ -129,7 +129,7 @@ namespace Dashboard.Controllers
         }
 
         // GET: Campaigns/Edit/5
-        [Authorize(Roles = "Marketing_Admin,Marketing_Trade")]
+        //[Authorize(Roles = "Marketing_Admin,Marketing_Trade")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
