@@ -23,7 +23,6 @@ namespace Dashboard.Controllers
         }
 
         // GET: TemplateAs/Details/5
-        [Authorize(Roles = "Marketing_Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -52,7 +51,7 @@ namespace Dashboard.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Marketing_Admin")]
-        public ActionResult Create([Bind(Include = "ID,CampaignID,HeadLine,SubHeadLine,KeyBannerImage,IntroductionMessage,CTAText,CTALink,SecondaryCaption,Column1Image,Column1Title,Column1Message,Column1CTAText,Column1CTALink,Column2Image,Column2Title,Column2Message,Column2CTAText,Column2CTALink,Column3Image,Column3Title,Column3Message,Column3CTAText,Column3CTALink")] TemplateA templateA)
+        public ActionResult Create([Bind(Include = "ID,CampaignID,HeadLine,SubHeadLine,KeyBannerImage,IntroductionMessage,CTAText,CTALink,SecondaryCaption,Column1Image,Column1Title,Column1Message,Column1CTAText,Column1CTALink,Column2Image,Column2Title,Column2Message,Column2CTAText,Column2CTALink,Column3Image,Column3Title,Column3Message,Column3CTAText,Column3CTALink,HeadLine1,SubHeadLine1,KeyBannerImage1,IntroductionMessage1,CTAText1,CTALink1,SecondaryCaption1,Column1Image1,Column1Title1,Column1Message1,Column1CTAText1,Column1CTALink1,Column2Image1,Column2Title1,Column2Message1,Column2CTAText1,Column2CTALink1,Column3Image1,Column3Title1,Column3Message1,Column3CTAText1,Column3CTALink1")] TemplateA templateA)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +87,7 @@ namespace Dashboard.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Marketing_Admin,Marketing_Trade")]
-        public ActionResult Edit([Bind(Include = "ID,CampaignID,HeadLine,SubHeadLine,KeyBannerImage,IntroductionMessage,CTAText,CTALink,SecondaryCaption,Column1Image,Column1Title,Column1Message,Column1CTAText,Column1CTALink,Column2Image,Column2Title,Column2Message,Column2CTAText,Column2CTALink,Column3Image,Column3Title,Column3Message,Column3CTAText,Column3CTALink")] TemplateA templateA)
+        public ActionResult Edit([Bind(Include = "ID,CampaignID,HeadLine,SubHeadLine,KeyBannerImage,IntroductionMessage,CTAText,CTALink,SecondaryCaption,Column1Image,Column1Title,Column1Message,Column1CTAText,Column1CTALink,Column2Image,Column2Title,Column2Message,Column2CTAText,Column2CTALink,Column3Image,Column3Title,Column3Message,Column3CTAText,Column3CTALink,HeadLine1,SubHeadLine1,KeyBannerImage1,IntroductionMessage1,CTAText1,CTALink1,SecondaryCaption1,Column1Image1,Column1Title1,Column1Message1,Column1CTAText1,Column1CTALink1,Column2Image1,Column2Title1,Column2Message1,Column2CTAText1,Column2CTALink1,Column3Image1,Column3Title1,Column3Message1,Column3CTAText1,Column3CTALink1")] TemplateA templateA)
         {
             if (ModelState.IsValid)
             {

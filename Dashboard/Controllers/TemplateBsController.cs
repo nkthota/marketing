@@ -39,7 +39,6 @@ namespace Dashboard.Controllers
         }
 
         // GET: TemplateBs/Create
-        [Authorize(Roles = "Marketing_Admin")]
         public ActionResult Create()
         {
             ViewBag.CampaignID = new SelectList(db.Campaigns, "ID", "Name");
@@ -52,7 +51,7 @@ namespace Dashboard.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Marketing_Admin")]
-        public ActionResult Create([Bind(Include = "ID,CampaignID,HeadLine,SubHeadLine,KeyBannerImage,IntroductionMessage,CTAText,CTALink,SecondaryCaption,Column1Image,Column1Title,Column1Message,Column1CTAText,Column1CTALink")] TemplateB templateB)
+        public ActionResult Create([Bind(Include = "ID,CampaignID,HeadLine,SubHeadLine,KeyBannerImage,IntroductionMessage,CTAText,CTALink,SecondaryCaption,Column1Image,Column1Title,Column1Message,Column1CTAText,Column1CTALink,HeadLine1,SubHeadLine1,KeyBannerImage1,IntroductionMessage1,CTAText1,CTALink1,SecondaryCaption1,Column1Image1,Column1Title1,Column1Message1,Column1CTAText1,Column1CTALink1")] TemplateB templateB)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +87,7 @@ namespace Dashboard.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Marketing_Admin,Marketing_Trade")]
-        public ActionResult Edit([Bind(Include = "ID,CampaignID,HeadLine,SubHeadLine,KeyBannerImage,IntroductionMessage,CTAText,CTALink,SecondaryCaption,Column1Image,Column1Title,Column1Message,Column1CTAText,Column1CTALink")] TemplateB templateB)
+        public ActionResult Edit([Bind(Include = "ID,CampaignID,HeadLine,SubHeadLine,KeyBannerImage,IntroductionMessage,CTAText,CTALink,SecondaryCaption,Column1Image,Column1Title,Column1Message,Column1CTAText,Column1CTALink,HeadLine1,SubHeadLine1,KeyBannerImage1,IntroductionMessage1,CTAText1,CTALink1,SecondaryCaption1,Column1Image1,Column1Title1,Column1Message1,Column1CTAText1,Column1CTALink1")] TemplateB templateB)
         {
             if (ModelState.IsValid)
             {

@@ -67,41 +67,49 @@
                                 </thead>
                                 <tbody>
                                     @foreach (var camp in @Model.Where(p => p.Status.Name == "Initiated").ToList())
-                                {
+                                    {
                                     <tr>
                                         @{ var stDate = string.IsNullOrEmpty(@camp.StartDate.ToString()) ? "" : DateTime.Parse(@camp.StartDate.ToString()).ToShortDateString(); }
                                         <td><a target="_blank" href="/Campaigns/Edit/@camp.ID">@camp.Name</a></td>
                                         <td>@stDate</td>
                                         <td>@camp.CampaignLead.FirstName</td>
                                         <td>@camp.Status.Name</td>
-                                        @if (camp.Email_Status.ToString() == "Not Started" || camp.Email_Status.ToString() == "Delayed")
-                                    {
-                                        <td><span class="badge" style="background-color: #f44941;">@camp.Email_Status</span></td>
-                                }
-                                else if (camp.Email_Status.ToString() == "In Progress")
-                                {
-                                    <td><span class="badge" style="background-color: #FFCC00;">@camp.Email_Status</span></td>
-                            }
-                            else if (camp.Email_Status.ToString() == "Completed")
-                            {
-                                <td><span class="badge" style="background-color: #73C6B6;">@camp.Email_Status</span></td>
-                        }
-                        else
-                        {
-                            <td></td>
-                    }
+
+                                        @if (string.IsNullOrEmpty(@camp.Email_Status) == false)
+                                        {
+                                            if (camp.Email_Status.ToString() == "Not Started" || camp.Email_Status.ToString() == "Delayed")
+                                            {
+                                                <td><span class="badge" style="background-color: #f44941;">@camp.Email_Status</span></td>
+                                            }
+                                            else if (camp.Email_Status.ToString() == "In Progress")
+                                            {
+                                                <td><span class="badge" style="background-color: #FFCC00;">@camp.Email_Status</span></td>
+                                            }
+                                            else if (camp.Email_Status.ToString() == "Completed")
+                                            {
+                                                <td><span class="badge" style="background-color: #73C6B6;">@camp.Email_Status</span></td>
+                                            }
+                                            else
+                                            {
+                                                <td></td>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <td></td>
+                                        }
                                         <td>@camp.EmailSystem.Name</td>
                                         <td>@camp.CampaignType.Type</td>
                                         @if (string.IsNullOrEmpty(@camp.CampaignMarket) == false)
-                                    {
+                                        {
                                         <td>@camp.CampaignMarket.Replace("1", "US").Replace("2", " CA-EN").Replace("3", " CA-FR")</td>
-                                }
-                                else
-                                {
-                                    <td></td>
-                            }
+                                        }
+                                        else
+                                        {
+                                            <td></td>
+                                        }
                                     </tr>
-                            }
+                                    }
                                 </tbody>
                             </table>
                         </div>

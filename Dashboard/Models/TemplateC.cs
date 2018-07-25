@@ -35,6 +35,25 @@ namespace Dashboard.Models
         public string Column2Message { get; set; }
         public string Column2CTAText { get; set; }
         public string Column2CTALink { get; set; }
+        public string Tags { get; set; }
+        public string HeadLine1 { get; set; }
+        public string SubHeadLine1 { get; set; }
+        public string KeyBannerImage1 { get; set; }
+        [AllowHtml]
+        public string IntroductionMessage1 { get; set; }
+        public string CTAText1 { get; set; }
+        public string CTALink1 { get; set; }
+        public string SecondaryCaption1 { get; set; }
+        public string Column1Image1 { get; set; }
+        public string Column1Title1 { get; set; }
+        public string Column1Message1 { get; set; }
+        public string Column1CTAText1 { get; set; }
+        public string Column1CTALink1 { get; set; }
+        public string Column2Image1 { get; set; }
+        public string Column2Title1 { get; set; }
+        public string Column2Message1 { get; set; }
+        public string Column2CTAText1 { get; set; }
+        public string Column2CTALink1 { get; set; }
     
         public virtual Campaign Campaign { get; set; }
     }

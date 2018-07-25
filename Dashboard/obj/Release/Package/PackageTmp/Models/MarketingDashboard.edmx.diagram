@@ -13,7 +13,7 @@
         <EntityTypeShape EntityType="MarketingModel.Country" Width="1.5" PointX="7.125" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="MarketingModel.EmailSystem" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
         <EntityTypeShape EntityType="MarketingModel.Status" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MarketingModel.Trade" Width="1.5" PointX="12.125" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketingModel.Trade" Width="1.5" PointX="12.625" PointY="10.875" IsExpanded="true" />
         <AssociationConnector Association="MarketingModel.FK__CampaignO__Trade__59FA5E80" ManuallyRouted="false" />
         <AssociationConnector Association="MarketingModel.FK__CampaignT__Trade__4E88ABD4" ManuallyRouted="false" />
         <EntityTypeShape EntityType="MarketingModel.CampaignPlan" Width="1.5" PointX="7.375" PointY="4.875" />
@@ -40,12 +40,12 @@
         <EntityTypeShape EntityType="MarketingModel.vCampaignTypeMonth" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="MarketingModel.vCampaignTradeMonth" Width="1.5" PointX="7.375" PointY="7.75" />
         <EntityTypeShape EntityType="MarketingModel.EmailStatu" Width="1.5" PointX="5.375" PointY="10.75" />
-        <EntityTypeShape EntityType="MarketingModel.TemplateA" Width="1.5" PointX="12.875" PointY="3.5" />
-        <AssociationConnector Association="MarketingModel.FK__TemplateA__Campa__3C34F16F" />
-        <EntityTypeShape EntityType="MarketingModel.TemplateC" Width="1.5" PointX="12.875" PointY="0.75" />
+        <EntityTypeShape EntityType="MarketingModel.TemplateC" Width="1.5" PointX="12.875" PointY="19.625" />
         <AssociationConnector Association="MarketingModel.FK__TemplateC__Campa__44CA3770" />
-        <EntityTypeShape EntityType="MarketingModel.TemplateB" Width="1.5" PointX="12.875" PointY="14.75" />
+        <EntityTypeShape EntityType="MarketingModel.TemplateB" Width="1.5" PointX="12.875" PointY="29.625" />
         <AssociationConnector Association="MarketingModel.FK__TemplateB__Campa__47A6A41B" />
+        <EntityTypeShape EntityType="MarketingModel.TemplateA" Width="1.5" PointX="12.875" PointY="0.75" />
+        <AssociationConnector Association="MarketingModel.FK__TemplateA__Campa__3C34F16F" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

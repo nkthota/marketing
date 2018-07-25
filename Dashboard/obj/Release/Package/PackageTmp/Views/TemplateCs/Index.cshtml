@@ -4,135 +4,240 @@
     ViewBag.Title = "Index";
 }
 
-<div class="content">
+<h2>Index</h2>
 
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.HeadLine)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SubHeadLine)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KeyBannerImage)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IntroductionMessage)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CTAText)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CTALink)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SecondaryCaption)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Column1Image)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Column1Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Column1Message)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Column1CTAText)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Column1CTALink)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Column2Image)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Column2Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Column2Message)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Column2CTAText)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Column2CTALink)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Campaign.Name)
-            </th>
-            <th></th>
-        </tr>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.HeadLine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubHeadLine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KeyBannerImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IntroductionMessage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CTAText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CTALink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SecondaryCaption)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Column1Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Column1Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Column1Message)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Column1CTAText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Column1CTALink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Column2Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Column2Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Column2Message)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Column2CTAText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Column2CTALink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tags)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HeadLine1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubHeadLine1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KeyBannerImage1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IntroductionMessage1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CTAText1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CTALink1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SecondaryCaption1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Column1Image1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Column1Title1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Column1Message1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Column1CTAText1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Column1CTALink1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Column2Image1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Column2Title1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Column2Message1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Column2CTAText1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Column2CTALink1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Campaign.Name)
+        </th>
+        <th></th>
+    </tr>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HeadLine)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SubHeadLine)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.KeyBannerImage)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IntroductionMessage)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CTAText)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CTALink)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SecondaryCaption)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Column1Image)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Column1Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Column1Message)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Column1CTAText)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Column1CTALink)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Column2Image)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Column2Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Column2Message)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Column2CTAText)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Column2CTALink)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Campaign.Name)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                </td>
-            </tr>
-        }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HeadLine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubHeadLine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KeyBannerImage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IntroductionMessage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CTAText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CTALink)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SecondaryCaption)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Column1Image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Column1Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Column1Message)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Column1CTAText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Column1CTALink)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Column2Image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Column2Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Column2Message)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Column2CTAText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Column2CTALink)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tags)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HeadLine1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubHeadLine1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KeyBannerImage1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IntroductionMessage1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CTAText1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CTALink1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SecondaryCaption1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Column1Image1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Column1Title1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Column1Message1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Column1CTAText1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Column1CTALink1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Column2Image1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Column2Title1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Column2Message1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Column2CTAText1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Column2CTALink1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Campaign.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
 
-    </table>
-
-</div>
+</table>

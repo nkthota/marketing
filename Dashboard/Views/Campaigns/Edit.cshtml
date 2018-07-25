@@ -232,7 +232,7 @@
 
                                                 <a class="btn btn-default btn-sm" id="showtemplate" target="_blank">
                                                     <i class="fa fa-edit"></i>
-                                                </a>
+                                                </a>                                                
                                                 <a class="btn btn-default btn-sm" id="createtemplate">
                                                     <i class="fa fa-plus-square"></i>
                                                 </a>
@@ -243,6 +243,10 @@
                                 </div>
                             </div>
                             <div class="col-lg-6">
+                                @*@foreach (var temp in currentTemplates)
+                                {
+                                <a type="button" class="btn w-xs btn-warning2" href="/@temp.TemplateUrl">@temp.TemplateType</a>
+                                }*@
                             </div>
                         </div>
 

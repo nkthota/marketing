@@ -165,6 +165,28 @@
     <Property Name="Column3Message" Type="varchar(max)" />
     <Property Name="Column3CTAText" Type="varchar(max)" />
     <Property Name="Column3CTALink" Type="varchar(max)" />
+    <Property Name="HeadLine1" Type="varchar(max)" />
+    <Property Name="SubHeadLine1" Type="varchar(max)" />
+    <Property Name="KeyBannerImage1" Type="varchar(max)" />
+    <Property Name="IntroductionMessage1" Type="varchar(max)" />
+    <Property Name="CTAText1" Type="varchar(max)" />
+    <Property Name="CTALink1" Type="varchar(max)" />
+    <Property Name="SecondaryCaption1" Type="varchar(max)" />
+    <Property Name="Column1Image1" Type="varchar(max)" />
+    <Property Name="Column1Title1" Type="varchar(max)" />
+    <Property Name="Column1Message1" Type="varchar(max)" />
+    <Property Name="Column1CTAText1" Type="varchar(max)" />
+    <Property Name="Column1CTALink1" Type="varchar(max)" />
+    <Property Name="Column2Image1" Type="varchar(max)" />
+    <Property Name="Column2Title1" Type="varchar(max)" />
+    <Property Name="Column2Message1" Type="varchar(max)" />
+    <Property Name="Column2CTAText1" Type="varchar(max)" />
+    <Property Name="Column2CTALink1" Type="varchar(max)" />
+    <Property Name="Column3Image1" Type="varchar(max)" />
+    <Property Name="Column3Title1" Type="varchar(max)" />
+    <Property Name="Column3Message1" Type="varchar(max)" />
+    <Property Name="Column3CTAText1" Type="varchar(max)" />
+    <Property Name="Column3CTALink1" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="TemplateB">
     <Key>
@@ -184,6 +206,18 @@
     <Property Name="Column1Message" Type="varchar(max)" />
     <Property Name="Column1CTAText" Type="varchar(max)" />
     <Property Name="Column1CTALink" Type="varchar(max)" />
+    <Property Name="HeadLine1" Type="varchar(max)" />
+    <Property Name="SubHeadLine1" Type="varchar(max)" />
+    <Property Name="KeyBannerImage1" Type="varchar(max)" />
+    <Property Name="IntroductionMessage1" Type="varchar(max)" />
+    <Property Name="CTAText1" Type="varchar(max)" />
+    <Property Name="CTALink1" Type="varchar(max)" />
+    <Property Name="SecondaryCaption1" Type="varchar(max)" />
+    <Property Name="Column1Image1" Type="varchar(max)" />
+    <Property Name="Column1Title1" Type="varchar(max)" />
+    <Property Name="Column1Message1" Type="varchar(max)" />
+    <Property Name="Column1CTAText1" Type="varchar(max)" />
+    <Property Name="Column1CTALink1" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="TemplateC">
     <Key>
@@ -208,6 +242,24 @@
     <Property Name="Column2Message" Type="varchar(max)" />
     <Property Name="Column2CTAText" Type="varchar(max)" />
     <Property Name="Column2CTALink" Type="varchar(max)" />
+    <Property Name="Tags" Type="varchar(max)" />
+    <Property Name="HeadLine1" Type="varchar(max)" />
+    <Property Name="SubHeadLine1" Type="varchar(max)" />
+    <Property Name="KeyBannerImage1" Type="varchar(max)" />
+    <Property Name="IntroductionMessage1" Type="varchar(max)" />
+    <Property Name="CTAText1" Type="varchar(max)" />
+    <Property Name="CTALink1" Type="varchar(max)" />
+    <Property Name="SecondaryCaption1" Type="varchar(max)" />
+    <Property Name="Column1Image1" Type="varchar(max)" />
+    <Property Name="Column1Title1" Type="varchar(max)" />
+    <Property Name="Column1Message1" Type="varchar(max)" />
+    <Property Name="Column1CTAText1" Type="varchar(max)" />
+    <Property Name="Column1CTALink1" Type="varchar(max)" />
+    <Property Name="Column2Image1" Type="varchar(max)" />
+    <Property Name="Column2Title1" Type="varchar(max)" />
+    <Property Name="Column2Message1" Type="varchar(max)" />
+    <Property Name="Column2CTAText1" Type="varchar(max)" />
+    <Property Name="Column2CTALink1" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Trade">
     <Key>

@@ -181,39 +181,27 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TemplateAs">
-      <EntityTypeMapping TypeName="MarketingModel.TemplateA">
-        <MappingFragment StoreEntitySet="TemplateA">
-          <ScalarProperty Name="Column3CTALink" ColumnName="Column3CTALink" />
-          <ScalarProperty Name="Column3CTAText" ColumnName="Column3CTAText" />
-          <ScalarProperty Name="Column3Message" ColumnName="Column3Message" />
-          <ScalarProperty Name="Column3Title" ColumnName="Column3Title" />
-          <ScalarProperty Name="Column3Image" ColumnName="Column3Image" />
-          <ScalarProperty Name="Column2CTALink" ColumnName="Column2CTALink" />
-          <ScalarProperty Name="Column2CTAText" ColumnName="Column2CTAText" />
-          <ScalarProperty Name="Column2Message" ColumnName="Column2Message" />
-          <ScalarProperty Name="Column2Title" ColumnName="Column2Title" />
-          <ScalarProperty Name="Column2Image" ColumnName="Column2Image" />
-          <ScalarProperty Name="Column1CTALink" ColumnName="Column1CTALink" />
-          <ScalarProperty Name="Column1CTAText" ColumnName="Column1CTAText" />
-          <ScalarProperty Name="Column1Message" ColumnName="Column1Message" />
-          <ScalarProperty Name="Column1Title" ColumnName="Column1Title" />
-          <ScalarProperty Name="Column1Image" ColumnName="Column1Image" />
-          <ScalarProperty Name="SecondaryCaption" ColumnName="SecondaryCaption" />
-          <ScalarProperty Name="CTALink" ColumnName="CTALink" />
-          <ScalarProperty Name="CTAText" ColumnName="CTAText" />
-          <ScalarProperty Name="IntroductionMessage" ColumnName="IntroductionMessage" />
-          <ScalarProperty Name="KeyBannerImage" ColumnName="KeyBannerImage" />
-          <ScalarProperty Name="SubHeadLine" ColumnName="SubHeadLine" />
-          <ScalarProperty Name="HeadLine" ColumnName="HeadLine" />
-          <ScalarProperty Name="CampaignID" ColumnName="CampaignID" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TemplateCs">
       <EntityTypeMapping TypeName="MarketingModel.TemplateC">
         <MappingFragment StoreEntitySet="TemplateC">
+          <ScalarProperty Name="Column2CTALink1" ColumnName="Column2CTALink1" />
+          <ScalarProperty Name="Column2CTAText1" ColumnName="Column2CTAText1" />
+          <ScalarProperty Name="Column2Message1" ColumnName="Column2Message1" />
+          <ScalarProperty Name="Column2Title1" ColumnName="Column2Title1" />
+          <ScalarProperty Name="Column2Image1" ColumnName="Column2Image1" />
+          <ScalarProperty Name="Column1CTALink1" ColumnName="Column1CTALink1" />
+          <ScalarProperty Name="Column1CTAText1" ColumnName="Column1CTAText1" />
+          <ScalarProperty Name="Column1Message1" ColumnName="Column1Message1" />
+          <ScalarProperty Name="Column1Title1" ColumnName="Column1Title1" />
+          <ScalarProperty Name="Column1Image1" ColumnName="Column1Image1" />
+          <ScalarProperty Name="SecondaryCaption1" ColumnName="SecondaryCaption1" />
+          <ScalarProperty Name="CTALink1" ColumnName="CTALink1" />
+          <ScalarProperty Name="CTAText1" ColumnName="CTAText1" />
+          <ScalarProperty Name="IntroductionMessage1" ColumnName="IntroductionMessage1" />
+          <ScalarProperty Name="KeyBannerImage1" ColumnName="KeyBannerImage1" />
+          <ScalarProperty Name="SubHeadLine1" ColumnName="SubHeadLine1" />
+          <ScalarProperty Name="HeadLine1" ColumnName="HeadLine1" />
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
           <ScalarProperty Name="Column2CTALink" ColumnName="Column2CTALink" />
           <ScalarProperty Name="Column2CTAText" ColumnName="Column2CTAText" />
           <ScalarProperty Name="Column2Message" ColumnName="Column2Message" />
@@ -239,6 +227,70 @@
     <EntitySetMapping Name="TemplateBs">
       <EntityTypeMapping TypeName="MarketingModel.TemplateB">
         <MappingFragment StoreEntitySet="TemplateB">
+          <ScalarProperty Name="Column1CTALink1" ColumnName="Column1CTALink1" />
+          <ScalarProperty Name="Column1CTAText1" ColumnName="Column1CTAText1" />
+          <ScalarProperty Name="Column1Message1" ColumnName="Column1Message1" />
+          <ScalarProperty Name="Column1Title1" ColumnName="Column1Title1" />
+          <ScalarProperty Name="Column1Image1" ColumnName="Column1Image1" />
+          <ScalarProperty Name="SecondaryCaption1" ColumnName="SecondaryCaption1" />
+          <ScalarProperty Name="CTALink1" ColumnName="CTALink1" />
+          <ScalarProperty Name="CTAText1" ColumnName="CTAText1" />
+          <ScalarProperty Name="IntroductionMessage1" ColumnName="IntroductionMessage1" />
+          <ScalarProperty Name="KeyBannerImage1" ColumnName="KeyBannerImage1" />
+          <ScalarProperty Name="SubHeadLine1" ColumnName="SubHeadLine1" />
+          <ScalarProperty Name="HeadLine1" ColumnName="HeadLine1" />
+          <ScalarProperty Name="Column1CTALink" ColumnName="Column1CTALink" />
+          <ScalarProperty Name="Column1CTAText" ColumnName="Column1CTAText" />
+          <ScalarProperty Name="Column1Message" ColumnName="Column1Message" />
+          <ScalarProperty Name="Column1Title" ColumnName="Column1Title" />
+          <ScalarProperty Name="Column1Image" ColumnName="Column1Image" />
+          <ScalarProperty Name="SecondaryCaption" ColumnName="SecondaryCaption" />
+          <ScalarProperty Name="CTALink" ColumnName="CTALink" />
+          <ScalarProperty Name="CTAText" ColumnName="CTAText" />
+          <ScalarProperty Name="IntroductionMessage" ColumnName="IntroductionMessage" />
+          <ScalarProperty Name="KeyBannerImage" ColumnName="KeyBannerImage" />
+          <ScalarProperty Name="SubHeadLine" ColumnName="SubHeadLine" />
+          <ScalarProperty Name="HeadLine" ColumnName="HeadLine" />
+          <ScalarProperty Name="CampaignID" ColumnName="CampaignID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TemplateAs">
+      <EntityTypeMapping TypeName="MarketingModel.TemplateA">
+        <MappingFragment StoreEntitySet="TemplateA">
+          <ScalarProperty Name="Column3CTALink1" ColumnName="Column3CTALink1" />
+          <ScalarProperty Name="Column3CTAText1" ColumnName="Column3CTAText1" />
+          <ScalarProperty Name="Column3Message1" ColumnName="Column3Message1" />
+          <ScalarProperty Name="Column3Title1" ColumnName="Column3Title1" />
+          <ScalarProperty Name="Column3Image1" ColumnName="Column3Image1" />
+          <ScalarProperty Name="Column2CTALink1" ColumnName="Column2CTALink1" />
+          <ScalarProperty Name="Column2CTAText1" ColumnName="Column2CTAText1" />
+          <ScalarProperty Name="Column2Message1" ColumnName="Column2Message1" />
+          <ScalarProperty Name="Column2Title1" ColumnName="Column2Title1" />
+          <ScalarProperty Name="Column2Image1" ColumnName="Column2Image1" />
+          <ScalarProperty Name="Column1CTALink1" ColumnName="Column1CTALink1" />
+          <ScalarProperty Name="Column1CTAText1" ColumnName="Column1CTAText1" />
+          <ScalarProperty Name="Column1Message1" ColumnName="Column1Message1" />
+          <ScalarProperty Name="Column1Title1" ColumnName="Column1Title1" />
+          <ScalarProperty Name="Column1Image1" ColumnName="Column1Image1" />
+          <ScalarProperty Name="SecondaryCaption1" ColumnName="SecondaryCaption1" />
+          <ScalarProperty Name="CTALink1" ColumnName="CTALink1" />
+          <ScalarProperty Name="CTAText1" ColumnName="CTAText1" />
+          <ScalarProperty Name="IntroductionMessage1" ColumnName="IntroductionMessage1" />
+          <ScalarProperty Name="KeyBannerImage1" ColumnName="KeyBannerImage1" />
+          <ScalarProperty Name="SubHeadLine1" ColumnName="SubHeadLine1" />
+          <ScalarProperty Name="HeadLine1" ColumnName="HeadLine1" />
+          <ScalarProperty Name="Column3CTALink" ColumnName="Column3CTALink" />
+          <ScalarProperty Name="Column3CTAText" ColumnName="Column3CTAText" />
+          <ScalarProperty Name="Column3Message" ColumnName="Column3Message" />
+          <ScalarProperty Name="Column3Title" ColumnName="Column3Title" />
+          <ScalarProperty Name="Column3Image" ColumnName="Column3Image" />
+          <ScalarProperty Name="Column2CTALink" ColumnName="Column2CTALink" />
+          <ScalarProperty Name="Column2CTAText" ColumnName="Column2CTAText" />
+          <ScalarProperty Name="Column2Message" ColumnName="Column2Message" />
+          <ScalarProperty Name="Column2Title" ColumnName="Column2Title" />
+          <ScalarProperty Name="Column2Image" ColumnName="Column2Image" />
           <ScalarProperty Name="Column1CTALink" ColumnName="Column1CTALink" />
           <ScalarProperty Name="Column1CTAText" ColumnName="Column1CTAText" />
           <ScalarProperty Name="Column1Message" ColumnName="Column1Message" />

@@ -41,8 +41,8 @@ namespace Dashboard.Models
         public virtual DbSet<vCampaignTypeMonth> vCampaignTypeMonths { get; set; }
         public virtual DbSet<vCampaignTradeMonth> vCampaignTradeMonths { get; set; }
         public virtual DbSet<EmailStatu> EmailStatus { get; set; }
-        public virtual DbSet<TemplateA> TemplateAs { get; set; }
         public virtual DbSet<TemplateC> TemplateCs { get; set; }
         public virtual DbSet<TemplateB> TemplateBs { get; set; }
+        public virtual DbSet<TemplateA> TemplateAs { get; set; }
     }
 }

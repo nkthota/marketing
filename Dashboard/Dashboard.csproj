@@ -2740,21 +2740,21 @@
     <Content Include="Views\ErrorHandler\Index.cshtml" />
     <Content Include="Views\Campaigns\ViewCampaign.cshtml" />
     <Content Include="Views\Dashboard\Template.cshtml" />
-    <Content Include="Views\TemplateAs\Create.cshtml" />
-    <Content Include="Views\TemplateAs\Delete.cshtml" />
-    <Content Include="Views\TemplateAs\Details.cshtml" />
-    <Content Include="Views\TemplateAs\Edit.cshtml" />
-    <Content Include="Views\TemplateAs\Index.cshtml" />
-    <Content Include="Views\TemplateBs\Create.cshtml" />
-    <Content Include="Views\TemplateBs\Delete.cshtml" />
-    <Content Include="Views\TemplateBs\Details.cshtml" />
-    <Content Include="Views\TemplateBs\Edit.cshtml" />
-    <Content Include="Views\TemplateBs\Index.cshtml" />
     <Content Include="Views\TemplateCs\Create.cshtml" />
     <Content Include="Views\TemplateCs\Delete.cshtml" />
     <Content Include="Views\TemplateCs\Details.cshtml" />
     <Content Include="Views\TemplateCs\Edit.cshtml" />
     <Content Include="Views\TemplateCs\Index.cshtml" />
+    <Content Include="Views\TemplateBs\Create.cshtml" />
+    <Content Include="Views\TemplateBs\Delete.cshtml" />
+    <Content Include="Views\TemplateBs\Details.cshtml" />
+    <Content Include="Views\TemplateBs\Edit.cshtml" />
+    <Content Include="Views\TemplateBs\Index.cshtml" />
+    <Content Include="Views\TemplateAs\Create.cshtml" />
+    <Content Include="Views\TemplateAs\Delete.cshtml" />
+    <Content Include="Views\TemplateAs\Details.cshtml" />
+    <Content Include="Views\TemplateAs\Edit.cshtml" />
+    <Content Include="Views\TemplateAs\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

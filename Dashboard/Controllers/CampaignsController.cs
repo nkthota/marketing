@@ -129,7 +129,7 @@ namespace Dashboard.Controllers
         }
 
         // GET: Campaigns/Edit/5
-        //[Authorize(Roles = "Marketing_Admin,Marketing_Trade")]
+        [Authorize(Roles = "Marketing_Admin,Marketing_Trade")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -169,9 +169,10 @@ namespace Dashboard.Controllers
             List<CampaignTemplates> campaignTemplates = new List<CampaignTemplates>();
 
             var templateAs = db.TemplateAs.Where(p => p.CampaignID == id).ToList();
-            foreach(var tempA in templateAs)
+            foreach (var tempA in templateAs)
             {
-                campaignTemplates.Add(new CampaignTemplates {
+                campaignTemplates.Add(new CampaignTemplates
+                {
                     TemplateType = "Template A",
                     TemplateUrl = $"/TemplateAs/Edit/{tempA.ID}"
                 });

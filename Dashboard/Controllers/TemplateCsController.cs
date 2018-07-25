@@ -51,7 +51,8 @@ namespace Dashboard.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,CampaignID,HeadLine,SubHeadLine,KeyBannerImage,IntroductionMessage,CTAText,CTALink,SecondaryCaption,Column1Image,Column1Title,Column1Message,Column1CTAText,Column1CTALink,Column2Image,Column2Title,Column2Message,Column2CTAText,Column2CTALink")] TemplateC templateC)
+        [Authorize(Roles = "Marketing_Admin")]
+        public ActionResult Create([Bind(Include = "ID,CampaignID,HeadLine,SubHeadLine,KeyBannerImage,IntroductionMessage,CTAText,CTALink,SecondaryCaption,Column1Image,Column1Title,Column1Message,Column1CTAText,Column1CTALink,Column2Image,Column2Title,Column2Message,Column2CTAText,Column2CTALink,Tags,HeadLine1,SubHeadLine1,KeyBannerImage1,IntroductionMessage1,CTAText1,CTALink1,SecondaryCaption1,Column1Image1,Column1Title1,Column1Message1,Column1CTAText1,Column1CTALink1,Column2Image1,Column2Title1,Column2Message1,Column2CTAText1,Column2CTALink1")] TemplateC templateC)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +88,7 @@ namespace Dashboard.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Marketing_Admin,Marketing_Trade")]
-        public ActionResult Edit([Bind(Include = "ID,CampaignID,HeadLine,SubHeadLine,KeyBannerImage,IntroductionMessage,CTAText,CTALink,SecondaryCaption,Column1Image,Column1Title,Column1Message,Column1CTAText,Column1CTALink,Column2Image,Column2Title,Column2Message,Column2CTAText,Column2CTALink")] TemplateC templateC)
+        public ActionResult Edit([Bind(Include = "ID,CampaignID,HeadLine,SubHeadLine,KeyBannerImage,IntroductionMessage,CTAText,CTALink,SecondaryCaption,Column1Image,Column1Title,Column1Message,Column1CTAText,Column1CTALink,Column2Image,Column2Title,Column2Message,Column2CTAText,Column2CTALink,Tags,HeadLine1,SubHeadLine1,KeyBannerImage1,IntroductionMessage1,CTAText1,CTALink1,SecondaryCaption1,Column1Image1,Column1Title1,Column1Message1,Column1CTAText1,Column1CTALink1,Column2Image1,Column2Title1,Column2Message1,Column2CTAText1,Column2CTALink1")] TemplateC templateC)
         {
             if (ModelState.IsValid)
             {
@@ -100,7 +101,6 @@ namespace Dashboard.Controllers
         }
 
         // GET: TemplateCs/Delete/5
-        [Authorize(Roles = "Marketing_Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
