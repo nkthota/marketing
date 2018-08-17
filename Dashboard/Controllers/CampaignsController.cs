@@ -211,7 +211,7 @@ namespace Dashboard.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Marketing_Admin")]
+        [Authorize(Roles = "Marketing_Admin,Marketing_Trade")]
         public ActionResult Edit([Bind(Include = "ID,Name,Objective,CampaignTypeID,CampaignLeadID,StatusID,EmailSystemID,CampaignPlanID,StartDate,EndDate,DateSubmitted,CampaignMarket,CampaignProducts,SuccessMetric,AccountSize,ContactPriority,Notes,CampaignProjectManager,Email,Email_Deliveries,Website_Sessions,Transactions,Email_Recipients,Open_Rate,Click_Rate,Bounce_Rate,Conversion_Rate,LandingPage,LandingUrl,USGraphWeeks,USGraphWeekRevenue,USGraphWeekUnits,CAGraphWeeks,CAGraphWeekRevenue,CAGraphWeekUnits,Email_Status,TemplateType,JobFunctions")] Campaign campaign)
         {
             if (ModelState.IsValid)

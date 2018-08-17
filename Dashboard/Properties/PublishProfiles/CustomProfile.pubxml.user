@@ -16,10 +16,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/22/2013 08:43:40</publishTime>
     </File>
     <File Include="bin/Dashboard.dll">
-      <publishTime>07/19/2018 05:21:00</publishTime>
+      <publishTime>08/03/2018 16:01:20</publishTime>
     </File>
     <File Include="bin/Dashboard.pdb">
-      <publishTime>07/19/2018 05:21:00</publishTime>
+      <publishTime>08/03/2018 16:01:20</publishTime>
     </File>
     <File Include="bin/de/System.Spatial.resources.dll">
       <publishTime>09/07/2017 23:17:14</publishTime>
